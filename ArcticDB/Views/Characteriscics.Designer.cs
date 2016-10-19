@@ -36,10 +36,15 @@
             this.addCharactButton = new System.Windows.Forms.Button();
             this.changeButton = new System.Windows.Forms.Button();
             this.RemoveButton = new System.Windows.Forms.Button();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // characteristicsListView
             // 
+            this.characteristicsListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2});
             this.characteristicsListView.Location = new System.Drawing.Point(-2, 104);
             this.characteristicsListView.Name = "characteristicsListView";
             this.characteristicsListView.Size = new System.Drawing.Size(287, 228);
@@ -107,6 +112,16 @@
             this.RemoveButton.Text = "Удалить";
             this.RemoveButton.UseVisualStyleBackColor = true;
             // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Имя";
+            this.columnHeader1.Width = 140;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Тип";
+            this.columnHeader2.Width = 140;
+            // 
             // Characteriscics
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -137,5 +152,7 @@
         private System.Windows.Forms.Button addCharactButton;
         private System.Windows.Forms.Button changeButton;
         private System.Windows.Forms.Button RemoveButton;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
     }
 }
