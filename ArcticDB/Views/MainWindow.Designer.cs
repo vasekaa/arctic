@@ -97,8 +97,9 @@
             // AvailableCharacteristicsToolStripMenuItem1
             // 
             this.AvailableCharacteristicsToolStripMenuItem1.Name = "AvailableCharacteristicsToolStripMenuItem1";
-            this.AvailableCharacteristicsToolStripMenuItem1.Size = new System.Drawing.Size(171, 20);
-            this.AvailableCharacteristicsToolStripMenuItem1.Text = "Доступные Характеристики";
+            this.AvailableCharacteristicsToolStripMenuItem1.Size = new System.Drawing.Size(107, 20);
+            this.AvailableCharacteristicsToolStripMenuItem1.Text = "Характеристики";
+            this.AvailableCharacteristicsToolStripMenuItem1.Click += new System.EventHandler(this.AvailableCharacteristicsToolStripMenuItem1_Click);
             // 
             // ExportToolStripMenuItem
             // 

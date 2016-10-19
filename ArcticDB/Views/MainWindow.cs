@@ -34,5 +34,11 @@ namespace ArcticDB
             var aobOfInvestForm = new ObjectsOfInvestigation();
             aobOfInvestForm.ShowDialog(this);
         }
+
+        private void AvailableCharacteristicsToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            var charactForm = new Characteriscics();
+            charactForm.ShowDialog(this);
+        }
     }
 }

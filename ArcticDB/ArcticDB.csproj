@@ -77,6 +77,12 @@
     <Compile Include="Views\AddProbe.Designer.cs">
       <DependentUpon>AddProbe.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Characteriscics.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Characteriscics.Designer.cs">
+      <DependentUpon>Characteriscics.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\MainWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,6 +116,9 @@
     </Compile>
     <EmbeddedResource Include="Views\AddProbe.resx">
       <DependentUpon>AddProbe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Characteriscics.resx">
+      <DependentUpon>Characteriscics.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
