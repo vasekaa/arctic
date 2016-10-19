@@ -47,5 +47,11 @@ namespace ArcticDB.Views
         {
 
         }
+
+        private void changeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var modObOfInvest = new ObjectOfInvestigationEdit(e);
+            modObOfInvest.ShowDialog(this);
+        }
     }
 }

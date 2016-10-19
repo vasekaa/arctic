@@ -29,10 +29,11 @@
         private void InitializeComponent()
         {
             this.obOfInvestigateListView = new System.Windows.Forms.ListView();
+            this.ColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.changeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,10 +49,16 @@
             this.obOfInvestigateListView.View = System.Windows.Forms.View.Details;
             this.obOfInvestigateListView.SelectedIndexChanged += new System.EventHandler(this.obOfInvestigateListView_SelectedIndexChanged);
             // 
+            // ColumnHeader
+            // 
+            this.ColumnHeader.Text = "Название";
+            this.ColumnHeader.Width = 100;
+            // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addToolStripMenuItem,
+            this.changeToolStripMenuItem,
             this.deleteToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -73,10 +80,12 @@
             this.deleteToolStripMenuItem.Text = "Удалить";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
-            // ColumnHeader
+            // changeToolStripMenuItem
             // 
-            this.ColumnHeader.Text = "Название";
-            this.ColumnHeader.Width = 100;
+            this.changeToolStripMenuItem.Name = "changeToolStripMenuItem";
+            this.changeToolStripMenuItem.Size = new System.Drawing.Size(73, 20);
+            this.changeToolStripMenuItem.Text = "Изменить";
+            this.changeToolStripMenuItem.Click += new System.EventHandler(this.changeToolStripMenuItem_Click);
             // 
             // ObjectsOfInvestigation
             // 
@@ -105,5 +114,6 @@
         private System.Windows.Forms.ToolStripMenuItem addToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
         private System.Windows.Forms.ColumnHeader ColumnHeader;
+        private System.Windows.Forms.ToolStripMenuItem changeToolStripMenuItem;
     }
 }
