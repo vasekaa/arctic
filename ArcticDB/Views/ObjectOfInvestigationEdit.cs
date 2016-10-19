@@ -26,5 +26,23 @@ namespace ArcticDB.Views
         {
 
         }
+
+        private void addCharact_Click(object sender, EventArgs e)
+        {
+            foreach(ListViewItem listViewItem in availableCharactlistView.SelectedItems)
+            {
+                availableCharactlistView.Items.Remove(listViewItem);
+                this.selectedCharectlistView.Items.Add(listViewItem);
+            }
+        }
+
+        private void removeCharact_Click(object sender, EventArgs e)
+        {
+            foreach (ListViewItem listViewItem in selectedCharectlistView.SelectedItems)
+            {
+                selectedCharectlistView.Items.Remove(listViewItem);
+                this.availableCharactlistView.Items.Add(listViewItem);
+            }
+        }
     }
 }

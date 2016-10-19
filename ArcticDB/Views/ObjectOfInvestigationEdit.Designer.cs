@@ -28,6 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.ListViewItem listViewItem19 = new System.Windows.Forms.ListViewItem("test1");
+            System.Windows.Forms.ListViewItem listViewItem20 = new System.Windows.Forms.ListViewItem("test2");
+            System.Windows.Forms.ListViewItem listViewItem21 = new System.Windows.Forms.ListViewItem("test3");
+            System.Windows.Forms.ListViewItem listViewItem22 = new System.Windows.Forms.ListViewItem("test4");
+            System.Windows.Forms.ListViewItem listViewItem23 = new System.Windows.Forms.ListViewItem("test5");
+            System.Windows.Forms.ListViewItem listViewItem24 = new System.Windows.Forms.ListViewItem("test6");
             this.OjectName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.selectedCharectlistView = new System.Windows.Forms.ListView();
@@ -38,6 +44,8 @@
             this.SaveButton = new System.Windows.Forms.Button();
             this.addCharact = new System.Windows.Forms.Button();
             this.removeCharact = new System.Windows.Forms.Button();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // OjectName
@@ -58,19 +66,33 @@
             // 
             // selectedCharectlistView
             // 
+            this.selectedCharectlistView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1});
+            this.selectedCharectlistView.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            listViewItem19});
             this.selectedCharectlistView.Location = new System.Drawing.Point(12, 84);
             this.selectedCharectlistView.Name = "selectedCharectlistView";
             this.selectedCharectlistView.Size = new System.Drawing.Size(156, 184);
             this.selectedCharectlistView.TabIndex = 2;
             this.selectedCharectlistView.UseCompatibleStateImageBehavior = false;
+            this.selectedCharectlistView.View = System.Windows.Forms.View.Details;
             // 
             // availableCharactlistView
             // 
+            this.availableCharactlistView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader2});
+            this.availableCharactlistView.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            listViewItem20,
+            listViewItem21,
+            listViewItem22,
+            listViewItem23,
+            listViewItem24});
             this.availableCharactlistView.Location = new System.Drawing.Point(234, 84);
             this.availableCharactlistView.Name = "availableCharactlistView";
             this.availableCharactlistView.Size = new System.Drawing.Size(156, 184);
             this.availableCharactlistView.TabIndex = 3;
             this.availableCharactlistView.UseCompatibleStateImageBehavior = false;
+            this.availableCharactlistView.View = System.Windows.Forms.View.Details;
             // 
             // label2
             // 
@@ -114,12 +136,13 @@
             // 
             // addCharact
             // 
-            this.addCharact.Location = new System.Drawing.Point(185, 142);
+            this.addCharact.Location = new System.Drawing.Point(185, 141);
             this.addCharact.Name = "addCharact";
             this.addCharact.Size = new System.Drawing.Size(30, 23);
             this.addCharact.TabIndex = 8;
             this.addCharact.Text = "<-";
             this.addCharact.UseVisualStyleBackColor = true;
+            this.addCharact.Click += new System.EventHandler(this.addCharact_Click);
             // 
             // removeCharact
             // 
@@ -129,6 +152,15 @@
             this.removeCharact.TabIndex = 9;
             this.removeCharact.Text = "->";
             this.removeCharact.UseVisualStyleBackColor = true;
+            this.removeCharact.Click += new System.EventHandler(this.removeCharact_Click);
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Имя";
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Имя";
             // 
             // ObjectOfInvestigationEdit
             // 
@@ -164,5 +196,7 @@
         private System.Windows.Forms.Button SaveButton;
         private System.Windows.Forms.Button addCharact;
         private System.Windows.Forms.Button removeCharact;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
     }
 }
