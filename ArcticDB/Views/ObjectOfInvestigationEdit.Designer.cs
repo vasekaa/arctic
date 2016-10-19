@@ -28,24 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.OjectName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.listView2 = new System.Windows.Forms.ListView();
+            this.selectedCharectlistView = new System.Windows.Forms.ListView();
+            this.availableCharactlistView = new System.Windows.Forms.ListView();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.cancellButton = new System.Windows.Forms.Button();
+            this.SaveButton = new System.Windows.Forms.Button();
+            this.addCharact = new System.Windows.Forms.Button();
+            this.removeCharact = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // textBox1
+            // OjectName
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 29);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(156, 20);
-            this.textBox1.TabIndex = 0;
+            this.OjectName.Location = new System.Drawing.Point(12, 29);
+            this.OjectName.Name = "OjectName";
+            this.OjectName.Size = new System.Drawing.Size(156, 20);
+            this.OjectName.TabIndex = 0;
             // 
             // label1
             // 
@@ -56,21 +56,21 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Название";
             // 
-            // listView1
+            // selectedCharectlistView
             // 
-            this.listView1.Location = new System.Drawing.Point(12, 84);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(156, 184);
-            this.listView1.TabIndex = 2;
-            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.selectedCharectlistView.Location = new System.Drawing.Point(12, 84);
+            this.selectedCharectlistView.Name = "selectedCharectlistView";
+            this.selectedCharectlistView.Size = new System.Drawing.Size(156, 184);
+            this.selectedCharectlistView.TabIndex = 2;
+            this.selectedCharectlistView.UseCompatibleStateImageBehavior = false;
             // 
-            // listView2
+            // availableCharactlistView
             // 
-            this.listView2.Location = new System.Drawing.Point(234, 84);
-            this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(156, 184);
-            this.listView2.TabIndex = 3;
-            this.listView2.UseCompatibleStateImageBehavior = false;
+            this.availableCharactlistView.Location = new System.Drawing.Point(234, 84);
+            this.availableCharactlistView.Name = "availableCharactlistView";
+            this.availableCharactlistView.Size = new System.Drawing.Size(156, 184);
+            this.availableCharactlistView.TabIndex = 3;
+            this.availableCharactlistView.UseCompatibleStateImageBehavior = false;
             // 
             // label2
             // 
@@ -91,59 +91,60 @@
             this.label3.TabIndex = 5;
             this.label3.Text = "Доступные характеристики";
             // 
-            // button1
+            // cancellButton
             // 
-            this.button1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.button1.Location = new System.Drawing.Point(15, 285);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Отмена";
-            this.button1.UseVisualStyleBackColor = true;
+            this.cancellButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.cancellButton.Location = new System.Drawing.Point(15, 285);
+            this.cancellButton.Name = "cancellButton";
+            this.cancellButton.Size = new System.Drawing.Size(75, 23);
+            this.cancellButton.TabIndex = 6;
+            this.cancellButton.Text = "Отмена";
+            this.cancellButton.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // SaveButton
             // 
-            this.button2.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.button2.Location = new System.Drawing.Point(315, 285);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 7;
-            this.button2.Text = "Сохранить";
-            this.button2.UseVisualStyleBackColor = true;
+            this.SaveButton.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.SaveButton.Location = new System.Drawing.Point(315, 285);
+            this.SaveButton.Name = "SaveButton";
+            this.SaveButton.Size = new System.Drawing.Size(75, 23);
+            this.SaveButton.TabIndex = 7;
+            this.SaveButton.Text = "Сохранить";
+            this.SaveButton.UseVisualStyleBackColor = true;
+            this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
             // 
-            // button3
+            // addCharact
             // 
-            this.button3.Location = new System.Drawing.Point(185, 142);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(30, 23);
-            this.button3.TabIndex = 8;
-            this.button3.Text = "<-";
-            this.button3.UseVisualStyleBackColor = true;
+            this.addCharact.Location = new System.Drawing.Point(185, 142);
+            this.addCharact.Name = "addCharact";
+            this.addCharact.Size = new System.Drawing.Size(30, 23);
+            this.addCharact.TabIndex = 8;
+            this.addCharact.Text = "<-";
+            this.addCharact.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // removeCharact
             // 
-            this.button4.Location = new System.Drawing.Point(185, 171);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(30, 23);
-            this.button4.TabIndex = 9;
-            this.button4.Text = "->";
-            this.button4.UseVisualStyleBackColor = true;
+            this.removeCharact.Location = new System.Drawing.Point(185, 171);
+            this.removeCharact.Name = "removeCharact";
+            this.removeCharact.Size = new System.Drawing.Size(30, 23);
+            this.removeCharact.TabIndex = 9;
+            this.removeCharact.Text = "->";
+            this.removeCharact.UseVisualStyleBackColor = true;
             // 
             // ObjectOfInvestigationEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(413, 320);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.removeCharact);
+            this.Controls.Add(this.addCharact);
+            this.Controls.Add(this.SaveButton);
+            this.Controls.Add(this.cancellButton);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.listView2);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.availableCharactlistView);
+            this.Controls.Add(this.selectedCharectlistView);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.OjectName);
             this.Name = "ObjectOfInvestigationEdit";
             this.Text = "Добавить обьект исследования";
             this.ResumeLayout(false);
@@ -153,15 +154,15 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox OjectName;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.ListView listView2;
+        private System.Windows.Forms.ListView selectedCharectlistView;
+        private System.Windows.Forms.ListView availableCharactlistView;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button cancellButton;
+        private System.Windows.Forms.Button SaveButton;
+        private System.Windows.Forms.Button addCharact;
+        private System.Windows.Forms.Button removeCharact;
     }
 }
