@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ArcticDB.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,17 @@ namespace ArcticDB.Views
         public Characteriscics()
         {
             InitializeComponent();
+            this.charactTypeComboBox.Items.Add(CharacteristicsTypes.INTEGER.ToString());
+            this.charactTypeComboBox.Items.Add(CharacteristicsTypes.FLOAT.ToString());
+            this.charactTypeComboBox.Items.Add(CharacteristicsTypes.TEXT.ToString());
+            this.charactTypeComboBox.Items.Add(CharacteristicsTypes.DATE.ToString());
+            this.charactTypeComboBox.Items.Add(CharacteristicsTypes.FILE.ToString());
+            this.charactTypeComboBox.SelectedIndex = 0;
+        }
+
+        private void charactTypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

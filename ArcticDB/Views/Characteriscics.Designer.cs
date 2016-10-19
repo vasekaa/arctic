@@ -28,16 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.characteristicsListView = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.charactNameTextFiled = new System.Windows.Forms.TextBox();
             this.charactTypeComboBox = new System.Windows.Forms.ComboBox();
+            this.characteriscicsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.addCharactButton = new System.Windows.Forms.Button();
             this.changeButton = new System.Windows.Forms.Button();
             this.RemoveButton = new System.Windows.Forms.Button();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            ((System.ComponentModel.ISupportInitialize)(this.characteriscicsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // characteristicsListView
@@ -51,6 +54,16 @@
             this.characteristicsListView.TabIndex = 0;
             this.characteristicsListView.UseCompatibleStateImageBehavior = false;
             this.characteristicsListView.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Имя";
+            this.columnHeader1.Width = 140;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Тип";
+            this.columnHeader2.Width = 140;
             // 
             // charactNameTextFiled
             // 
@@ -66,6 +79,7 @@
             this.charactTypeComboBox.Name = "charactTypeComboBox";
             this.charactTypeComboBox.Size = new System.Drawing.Size(121, 21);
             this.charactTypeComboBox.TabIndex = 2;
+            this.charactTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.charactTypeComboBox_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -112,16 +126,6 @@
             this.RemoveButton.Text = "Удалить";
             this.RemoveButton.UseVisualStyleBackColor = true;
             // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "Имя";
-            this.columnHeader1.Width = 140;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "Тип";
-            this.columnHeader2.Width = 140;
-            // 
             // Characteriscics
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -137,6 +141,7 @@
             this.Controls.Add(this.characteristicsListView);
             this.Name = "Characteriscics";
             this.Text = "Характеристики";
+            ((System.ComponentModel.ISupportInitialize)(this.characteriscicsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -154,5 +159,6 @@
         private System.Windows.Forms.Button RemoveButton;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.BindingSource characteriscicsBindingSource;
     }
 }
