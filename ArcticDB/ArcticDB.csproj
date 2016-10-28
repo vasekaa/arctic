@@ -71,6 +71,9 @@
   <ItemGroup>
     <Compile Include="Model\CharacteristicsTypes.cs" />
     <Compile Include="Model\pojo\ApplicationState.cs" />
+    <Compile Include="Model\pojo\Characteristic.cs" />
+    <Compile Include="Servicies\ISamplTypesService.cs" />
+    <Compile Include="Servicies\ICharacteristicsService.cs" />
     <Compile Include="Views\AddProbe.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,6 +86,7 @@
     <Compile Include="Views\Characteriscics.Designer.cs">
       <DependentUpon>Characteriscics.cs</DependentUpon>
     </Compile>
+    <Compile Include="Servicies\Impl\CharacteristicsServiceImpl.cs" />
     <Compile Include="Views\MainWindow.cs">
       <SubType>Form</SubType>
     </Compile>

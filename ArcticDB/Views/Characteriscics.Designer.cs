@@ -74,12 +74,12 @@
             // 
             // charactTypeComboBox
             // 
+            this.charactTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.charactTypeComboBox.FormattingEnabled = true;
             this.charactTypeComboBox.Location = new System.Drawing.Point(151, 25);
             this.charactTypeComboBox.Name = "charactTypeComboBox";
             this.charactTypeComboBox.Size = new System.Drawing.Size(121, 21);
             this.charactTypeComboBox.TabIndex = 2;
-            this.charactTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.charactTypeComboBox_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -107,6 +107,7 @@
             this.addCharactButton.TabIndex = 5;
             this.addCharactButton.Text = "Добавить";
             this.addCharactButton.UseVisualStyleBackColor = true;
+            this.addCharactButton.Click += new System.EventHandler(this.addCharactButton_Click);
             // 
             // changeButton
             // 

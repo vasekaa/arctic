@@ -13,6 +13,7 @@ namespace ArcticDB.Views
 {
     public partial class Characteriscics : Form
     {
+        ICharacteristicsService characteristicsService = new CharacteristicsServiceImpl();
         public Characteriscics()
         {
             InitializeComponent();
@@ -24,9 +25,9 @@ namespace ArcticDB.Views
             this.charactTypeComboBox.SelectedIndex = 0;
         }
 
-        private void charactTypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void addCharactButton_Click(object sender, EventArgs e)
         {
-
+            characteristicsService.addCharacteristic(new Characteristic(charactTypeComboBox.SelectedValue, charactNameTextFiled.Text));
         }
     }
 }
