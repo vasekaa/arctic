@@ -8,5 +8,6 @@ namespace ArcticDB
         List<Characteristic> getAllCharacteristics();
         Characteristic addCharacteristic(Characteristic characteristic);
         Characteristic removeCharacteristic(int characteristicId);
+        void updateCharacteristic(Characteristic characteristic);
     }
 }

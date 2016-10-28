@@ -59,6 +59,7 @@
             this.characteristicsListView.TabIndex = 0;
             this.characteristicsListView.UseCompatibleStateImageBehavior = false;
             this.characteristicsListView.View = System.Windows.Forms.View.Details;
+            this.characteristicsListView.DoubleClick += new System.EventHandler(this.charactList_doubleClick);
             // 
             // columnId
             // 
@@ -126,6 +127,7 @@
             this.changeButton.TabIndex = 6;
             this.changeButton.Text = "Изменить";
             this.changeButton.UseVisualStyleBackColor = true;
+            this.changeButton.Click += new System.EventHandler(this.changeButton_Click);
             // 
             // RemoveButton
             // 

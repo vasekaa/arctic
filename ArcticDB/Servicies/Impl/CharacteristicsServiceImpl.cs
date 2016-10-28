@@ -12,6 +12,7 @@ namespace ArcticDB.Views
         private const string SELECT_ALL = "SELECT id,name,type FROM InputParamaters";
         private const string INSERT = "INSERT INTO InputParamaters (id, name, type) VALUES (@id,@name,@type)";
         private const string DELETE_ONE = "DELETE FROM InputParamaters WHERE id = @id";
+        private const string UPDATE = "UPDATE InputParamaters SET name= @name, type= @type WHERE id = @id";
         public Characteristic addCharacteristic(Characteristic characteristic)
         {
             SQLiteCommand insertSQL = new SQLiteCommand(INSERT, Program.conn);
@@ -68,6 +69,22 @@ namespace ArcticDB.Views
             }
             
             return null;
+        }
+
+        public void updateCharacteristic(Characteristic characteristic)
+        {
+            SQLiteCommand insertSQL = new SQLiteCommand(UPDATE, Program.conn);
+            insertSQL.Parameters.Add(new SQLiteParameter("@id", characteristic.id));
+            insertSQL.Parameters.Add(new SQLiteParameter("@name", characteristic.name));
+            insertSQL.Parameters.Add(new SQLiteParameter("@type", characteristic.type.getTypeOrdinal().ToString()));
+            try
+            {
+                insertSQL.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
     }
 }
