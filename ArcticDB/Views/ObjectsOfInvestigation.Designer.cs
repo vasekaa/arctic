@@ -46,6 +46,7 @@
             this.obOfInvestigateListView.FullRowSelect = true;
             this.obOfInvestigateListView.HideSelection = false;
             this.obOfInvestigateListView.Location = new System.Drawing.Point(12, 38);
+            this.obOfInvestigateListView.MultiSelect = false;
             this.obOfInvestigateListView.Name = "obOfInvestigateListView";
             this.obOfInvestigateListView.Size = new System.Drawing.Size(259, 210);
             this.obOfInvestigateListView.TabIndex = 0;
@@ -94,6 +95,7 @@
             // columnHeaderName
             // 
             this.columnHeaderName.Text = "Название";
+            this.columnHeaderName.Width = 218;
             // 
             // ObjectsOfInvestigation
             // 

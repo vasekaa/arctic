@@ -42,9 +42,17 @@ namespace ArcticDB.Views
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            foreach (ListViewItem listViewItem in this.obOfInvestigateListView.SelectedItems)
+            if (this.obOfInvestigateListView.SelectedItems.Count > 0)
             {
-                listViewItem.Remove();
+                int selectedListItemId = this.obOfInvestigateListView.SelectedIndices[0];
+                ListViewItem objectListItem = this.obOfInvestigateListView.Items[selectedListItemId];
+                int selectedObjId = Int32.Parse(objectListItem.SubItems[0].Text);
+                if (objectsOfInvestService.removeObjectOfInvestigation(selectedObjId) == null)
+                {
+                    return;
+                }
+                objectListItem.Remove();
+                this.obOfInvestigateListView.Refresh();
             }
         }
 

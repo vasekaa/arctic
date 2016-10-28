@@ -14,7 +14,7 @@ namespace ArcticDB.Servicies
         private const string UPDATE = "UPDATE SampleType SET name= @name WHERE id = @id";
         private const string SELECT_OBJECTTYPE_CHARACTS_ALL = "SELECT SampleType.id,SampleType.name,InputParamaters.id,InputParamaters.name FROM SampleType LEFT JOIN SampeTypeParameters ON SampleType.id = SampeTypeParameters.SampeTypeId LEFT JOIN InputParamaters ON SampeTypeParameters.InputParameterId = InputParamaters.id";
         private const string SELECT_OBJECTTYPE_CHARACTS_BY_ID = "SELECT InputParamaters.id AS id,InputParamaters.name AS name FROM SampeTypeParameters LEFT JOIN InputParamaters ON SampeTypeParameters.InputParameterId = InputParamaters.id WHERE SampeTypeParameters.SampeTypeId = @id";
-        private const string DELETE_OBJTYPE_CHARACTS = "DELETE FROM SampeTypeParameters WHERE SampleType.id = @id";
+        private const string DELETE_OBJTYPE_CHARACTS = "DELETE FROM SampeTypeParameters WHERE SampeTypeId = @id";
         public ObjectOfInvestigationPojo addObjectOfInvestigation(ObjectOfInvestigationPojo objectOfInvestigation)
         {
             throw new NotImplementedException();
@@ -68,7 +68,7 @@ namespace ArcticDB.Servicies
                 throw new Exception(ex.Message);
             }
             transact.Commit();
-            return null;
+            return new ObjectOfInvestigationPojo();
         }
 
         public void updateObjectOfInvestigation(ObjectOfInvestigationPojo objectOfInvestigation)

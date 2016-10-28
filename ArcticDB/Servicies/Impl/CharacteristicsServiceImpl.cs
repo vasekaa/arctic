@@ -76,7 +76,7 @@ namespace ArcticDB.Servicies
                 throw new Exception(ex.Message);
             }
             
-            return null;
+            return new Characteristic();
         }
 
         public void updateCharacteristic(Characteristic characteristic)

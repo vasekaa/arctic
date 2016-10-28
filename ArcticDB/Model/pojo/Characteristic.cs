@@ -4,6 +4,9 @@ namespace ArcticDB.Model
 {
     public class Characteristic
     {
+        public Characteristic()
+        {
+        }
         public Characteristic(CharacteristicsTypes type,string name,int id)
         {
             this.type = type;

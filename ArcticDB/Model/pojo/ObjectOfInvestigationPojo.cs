@@ -13,6 +13,9 @@ namespace ArcticDB.Model
             this.name = name;
             this.characteristics = characteristics;
         }
+        public ObjectOfInvestigationPojo()
+        {
+        }
         public ObjectOfInvestigationPojo(string name, List<Characteristic> characteristics)
         {
             this.name = name;
