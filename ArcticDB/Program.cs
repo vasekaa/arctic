@@ -17,7 +17,7 @@ namespace ArcticDB
         static void Main()
         {
 
-            conn = new SQLiteConnection("Data Source=arctic.db; Version=3;");
+            conn = new SQLiteConnection("Data Source=arctic.db; Version=3;foreign keys=true;");
             try
             {
                 conn.Open();

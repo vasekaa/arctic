@@ -62,7 +62,10 @@ namespace ArcticDB.Views
                 int selectedListItemId = this.characteristicsListView.SelectedIndices[0];
                 ListViewItem charactListItem = this.characteristicsListView.Items[selectedListItemId];
                 int selectedCharactId = Int32.Parse(charactListItem.SubItems[0].Text);
-                characteristicsService.removeCharacteristic(selectedCharactId);
+                if (characteristicsService.removeCharacteristic(selectedCharactId) == null)
+                {
+                    return;
+                }
                 this.characteristicsListView.Items.RemoveAt(selectedListItemId);
                 this.characteristicsListView.Refresh();
             }

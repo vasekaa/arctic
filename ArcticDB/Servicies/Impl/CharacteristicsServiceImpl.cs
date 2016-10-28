@@ -3,7 +3,9 @@ using ArcticDB.Model;
 using ArcticDB.Servicies;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Data.SQLite;
+using System.Windows.Forms;
 
 namespace ArcticDB.Views
 {
@@ -65,6 +67,12 @@ namespace ArcticDB.Views
             }
             catch (Exception ex)
             {
+                if (ex.Message.Contains("FOREIGN"))
+                {
+                    MessageBox.Show("Данную запись нельзя удалить.\nОна используется в связанных таблицах.",
+                        "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return null;
+                }
                 throw new Exception(ex.Message);
             }
             
