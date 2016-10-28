@@ -52,5 +52,19 @@ namespace ArcticDB.Views
                 this.characteristicsListView.Items.Add(item);
             }
         }
+
+        private void RemoveButton_Click(object sender, EventArgs e)
+        {
+
+            if (this.characteristicsListView.SelectedIndices.Count > 0)
+            {
+                int selectedListItemId = this.characteristicsListView.SelectedIndices[0];
+                ListViewItem charactListItem = this.characteristicsListView.Items[selectedListItemId];
+                int selectedCharactId = Int32.Parse(charactListItem.SubItems[0].Text);
+                characteristicsService.removeCharacteristic(selectedCharactId);
+                this.characteristicsListView.Items.RemoveAt(selectedListItemId);
+                this.characteristicsListView.Refresh();
+            }
+        }
     }
 }

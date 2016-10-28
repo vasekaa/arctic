@@ -135,6 +135,7 @@
             this.RemoveButton.TabIndex = 7;
             this.RemoveButton.Text = "Удалить";
             this.RemoveButton.UseVisualStyleBackColor = true;
+            this.RemoveButton.Click += new System.EventHandler(this.RemoveButton_Click);
             // 
             // Characteriscics
             // 
