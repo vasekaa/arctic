@@ -74,6 +74,7 @@
     <Compile Include="Model\pojo\Characteristic.cs" />
     <Compile Include="Servicies\ISamplTypesService.cs" />
     <Compile Include="Servicies\ICharacteristicsService.cs" />
+    <Compile Include="Servicies\SQLLiteUtil.cs" />
     <Compile Include="Views\AddProbe.cs">
       <SubType>Form</SubType>
     </Compile>

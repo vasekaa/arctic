@@ -3,9 +3,8 @@ using System.Collections.Generic;
 
 namespace ArcticDB
 {
-    internal interface IUserService
+    internal interface ISamplTypesService
     {
-        void setUserPermissions(string login);
-        Boolean chechUserPermission(string permissions);
+       
     }
 }

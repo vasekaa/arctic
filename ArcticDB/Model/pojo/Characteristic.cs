@@ -11,16 +11,14 @@ namespace ArcticDB
             this.id = id;
         }
 
-        public Characteristic(object selectedValue, string text)
+        public Characteristic(CharacteristicsTypes type, string text)
         {
-            this.selectedValue = selectedValue;
-            this.text = text;
+            this.type = type;
+            this.name = text;
         }
 
         public CharacteristicsTypes type;
         public string name;
         public int id;
-        private object selectedValue;
-        private string text;
     }
 }
