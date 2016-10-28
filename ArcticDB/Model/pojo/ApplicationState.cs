@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace ArcticDB
+namespace ArcticDB.Model
 {
     public static class ApplicationState
     {

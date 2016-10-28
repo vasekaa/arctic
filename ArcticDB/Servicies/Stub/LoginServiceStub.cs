@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace ArcticDB
+namespace ArcticDB.Servicies
 {
     internal class LoginServiceStub : ILoginService
     {

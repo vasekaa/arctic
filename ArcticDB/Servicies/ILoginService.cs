@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace ArcticDB
+namespace ArcticDB.Servicies
 {
     internal interface ILoginService
     {

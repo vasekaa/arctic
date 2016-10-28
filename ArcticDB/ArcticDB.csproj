@@ -74,6 +74,7 @@
     <Compile Include="Model\pojo\Characteristic.cs" />
     <Compile Include="Servicies\ISamplTypesService.cs" />
     <Compile Include="Servicies\ICharacteristicsService.cs" />
+    <Compile Include="Model\pojo\ObjectOfInvestigationPojo.cs" />
     <Compile Include="Servicies\SQLLiteUtil.cs" />
     <Compile Include="Views\AddProbe.cs">
       <SubType>Form</SubType>
@@ -88,6 +89,7 @@
       <DependentUpon>Characteriscics.cs</DependentUpon>
     </Compile>
     <Compile Include="Servicies\Impl\CharacteristicsServiceImpl.cs" />
+    <Compile Include="Servicies\IObjectsOfInvestService.cs" />
     <Compile Include="Views\MainWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,6 +121,7 @@
     <Compile Include="Views\ObjectsOfInvestigation.Designer.cs">
       <DependentUpon>ObjectsOfInvestigation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Servicies\Impl\ObjectsOfInvestServiceImpl.cs" />
     <EmbeddedResource Include="Views\AddProbe.resx">
       <DependentUpon>AddProbe.cs</DependentUpon>
     </EmbeddedResource>

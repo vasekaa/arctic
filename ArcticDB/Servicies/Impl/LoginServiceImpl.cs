@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Data.SQLite;
 
-namespace ArcticDB
+namespace ArcticDB.Servicies
 {
     internal class LoginServiceImpl : ILoginService
     {

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ArcticDB.Model;
+using ArcticDB.Servicies;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +14,12 @@ namespace ArcticDB.Views
 {
     public partial class ObjectsOfInvestigation : Form
     {
+        IObjectsOfInvestService objectsOfInvestService = new ObjectsOfInvestServiceImpl();
+        int charactListViewSelectedItemForChange = -1;
         public ObjectsOfInvestigation()
         {
             InitializeComponent();
+            loadObjectsList();
         }
 
         private void ObjectsOfInvestigation_Load(object sender, EventArgs e)
@@ -52,6 +57,17 @@ namespace ArcticDB.Views
         {
             var modObOfInvest = new ObjectOfInvestigationEdit(e);
             modObOfInvest.ShowDialog(this);
+        }
+        private void loadObjectsList()
+        {
+            List<ObjectOfInvestigationPojo> objectsOfInvestigations = objectsOfInvestService.getAllObjectOfInvestigations();
+            ListViewItem item = null;
+            foreach (ObjectOfInvestigationPojo objectsOfInvestigation in objectsOfInvestigations)
+            {
+                string[] row = { objectsOfInvestigation.id.ToString(), objectsOfInvestigation.name};
+                item = new ListViewItem(row);
+                this.obOfInvestigateListView.Items.Add(item);
+            }
         }
     }
 }

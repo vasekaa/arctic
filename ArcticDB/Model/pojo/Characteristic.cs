@@ -1,6 +1,6 @@
 ﻿using ArcticDB.Model;
 
-namespace ArcticDB
+namespace ArcticDB.Model
 {
     public class Characteristic
     {
@@ -10,7 +10,11 @@ namespace ArcticDB
             this.name = name;
             this.id = id;
         }
-
+        public Characteristic(int id, string name)
+        {
+            this.name = name;
+            this.id = id;
+        }
         public Characteristic(CharacteristicsTypes type, string text)
         {
             this.type = type;

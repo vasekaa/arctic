@@ -29,18 +29,22 @@
         private void InitializeComponent()
         {
             this.obOfInvestigateListView = new System.Windows.Forms.ListView();
-            this.ColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.idHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.columnHeaderName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // obOfInvestigateListView
             // 
             this.obOfInvestigateListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.ColumnHeader});
+            this.idHeader,
+            this.columnHeaderName});
+            this.obOfInvestigateListView.FullRowSelect = true;
+            this.obOfInvestigateListView.HideSelection = false;
             this.obOfInvestigateListView.Location = new System.Drawing.Point(12, 38);
             this.obOfInvestigateListView.Name = "obOfInvestigateListView";
             this.obOfInvestigateListView.Size = new System.Drawing.Size(259, 210);
@@ -49,10 +53,10 @@
             this.obOfInvestigateListView.View = System.Windows.Forms.View.Details;
             this.obOfInvestigateListView.SelectedIndexChanged += new System.EventHandler(this.obOfInvestigateListView_SelectedIndexChanged);
             // 
-            // ColumnHeader
+            // idHeader
             // 
-            this.ColumnHeader.Text = "Название";
-            this.ColumnHeader.Width = 100;
+            this.idHeader.Text = "id";
+            this.idHeader.Width = 100;
             // 
             // menuStrip1
             // 
@@ -73,6 +77,13 @@
             this.addToolStripMenuItem.Text = "Добавить";
             this.addToolStripMenuItem.Click += new System.EventHandler(this.addToolStripMenuItem_Click);
             // 
+            // changeToolStripMenuItem
+            // 
+            this.changeToolStripMenuItem.Name = "changeToolStripMenuItem";
+            this.changeToolStripMenuItem.Size = new System.Drawing.Size(73, 20);
+            this.changeToolStripMenuItem.Text = "Изменить";
+            this.changeToolStripMenuItem.Click += new System.EventHandler(this.changeToolStripMenuItem_Click);
+            // 
             // deleteToolStripMenuItem
             // 
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
@@ -80,12 +91,9 @@
             this.deleteToolStripMenuItem.Text = "Удалить";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
-            // changeToolStripMenuItem
+            // columnHeaderName
             // 
-            this.changeToolStripMenuItem.Name = "changeToolStripMenuItem";
-            this.changeToolStripMenuItem.Size = new System.Drawing.Size(73, 20);
-            this.changeToolStripMenuItem.Text = "Изменить";
-            this.changeToolStripMenuItem.Click += new System.EventHandler(this.changeToolStripMenuItem_Click);
+            this.columnHeaderName.Text = "Название";
             // 
             // ObjectsOfInvestigation
             // 
@@ -113,7 +121,8 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem addToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
-        private System.Windows.Forms.ColumnHeader ColumnHeader;
+        private System.Windows.Forms.ColumnHeader idHeader;
         private System.Windows.Forms.ToolStripMenuItem changeToolStripMenuItem;
+        private System.Windows.Forms.ColumnHeader columnHeaderName;
     }
 }

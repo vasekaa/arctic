@@ -7,7 +7,7 @@ using System.Data.SqlClient;
 using System.Data.SQLite;
 using System.Windows.Forms;
 
-namespace ArcticDB.Views
+namespace ArcticDB.Servicies
 {
     internal class CharacteristicsServiceImpl : ICharacteristicsService
     {

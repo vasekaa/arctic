@@ -1,7 +1,8 @@
-﻿using System;
+﻿using ArcticDB.Model;
+using System;
 using System.Collections.Generic;
 
-namespace ArcticDB
+namespace ArcticDB.Servicies
 {
     internal class UserServiceStub : IUserService
     {
