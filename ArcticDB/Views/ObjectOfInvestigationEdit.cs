@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ArcticDB.Model;
+using ArcticDB.Servicies;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +14,8 @@ namespace ArcticDB.Views
 {
     public partial class ObjectOfInvestigationEdit : Form
     {
+        IObjectsOfInvestService objectsOfInvestService = new ObjectsOfInvestServiceImpl();
+
         public ObjectOfInvestigationEdit()
         {
             InitializeComponent();
@@ -27,7 +31,14 @@ namespace ArcticDB.Views
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
-
+            ObjectOfInvestigationPojo objectOfInvestigationPojo = new ObjectOfInvestigationPojo();
+            objectOfInvestigationPojo.name = this.OjectName.Text;
+            foreach(ListViewItem item in selectedCharectlistView.Items)
+            {
+                Characteristic characteristic = new Characteristic(Int32.Parse(item.SubItems[0].Text), item.SubItems[1].Text);
+                objectOfInvestigationPojo.characteristics.Add(characteristic);
+            }
+            objectsOfInvestService.addObjectOfInvestigation(objectOfInvestigationPojo);
         }
 
         private void addCharact_Click(object sender, EventArgs e)
