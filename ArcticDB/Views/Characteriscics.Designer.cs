@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.characteristicsListView = new System.Windows.Forms.ListView();
+            this.columnId = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnType = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.charactNameTextFiled = new System.Windows.Forms.TextBox();
@@ -40,7 +41,6 @@
             this.addCharactButton = new System.Windows.Forms.Button();
             this.changeButton = new System.Windows.Forms.Button();
             this.RemoveButton = new System.Windows.Forms.Button();
-            this.columnId = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.characteriscicsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,12 +50,19 @@
             this.columnId,
             this.columnName,
             this.columnType});
+            this.characteristicsListView.FullRowSelect = true;
+            this.characteristicsListView.HideSelection = false;
             this.characteristicsListView.Location = new System.Drawing.Point(-2, 104);
+            this.characteristicsListView.MultiSelect = false;
             this.characteristicsListView.Name = "characteristicsListView";
             this.characteristicsListView.Size = new System.Drawing.Size(287, 228);
             this.characteristicsListView.TabIndex = 0;
             this.characteristicsListView.UseCompatibleStateImageBehavior = false;
             this.characteristicsListView.View = System.Windows.Forms.View.Details;
+            // 
+            // columnId
+            // 
+            this.columnId.Text = "Id";
             // 
             // columnName
             // 
@@ -129,10 +136,6 @@
             this.RemoveButton.Text = "Удалить";
             this.RemoveButton.UseVisualStyleBackColor = true;
             // 
-            // columnId
-            // 
-            this.columnId.Text = "Id";
-            // 
             // Characteriscics
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -146,6 +149,7 @@
             this.Controls.Add(this.charactTypeComboBox);
             this.Controls.Add(this.charactNameTextFiled);
             this.Controls.Add(this.characteristicsListView);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Characteriscics";
             this.Text = "Характеристики";
             ((System.ComponentModel.ISupportInitialize)(this.characteriscicsBindingSource)).EndInit();
