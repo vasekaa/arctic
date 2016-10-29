@@ -14,15 +14,18 @@ namespace ArcticDB.Views
 {
     public partial class ObjectOfInvestigationEdit : Form
     {
+        public ObjectOfInvestigationPojo selectedObjectOfInvestigation = null;
         IObjectsOfInvestService objectsOfInvestService = new ObjectsOfInvestServiceImpl();
-
+        ICharacteristicsService characteristicsService = new CharacteristicsServiceImpl();
         public ObjectOfInvestigationEdit()
         {
             InitializeComponent();
+            initializeLists();
         }
         public ObjectOfInvestigationEdit(EventArgs e)
         {
             InitializeComponent();
+            initializeLists();
         }
         private void label2_Click(object sender, EventArgs e)
         {
@@ -31,14 +34,21 @@ namespace ArcticDB.Views
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            ObjectOfInvestigationPojo objectOfInvestigationPojo = new ObjectOfInvestigationPojo();
-            objectOfInvestigationPojo.name = this.OjectName.Text;
-            foreach(ListViewItem item in selectedCharectlistView.Items)
+            if (selectedObjectOfInvestigation == null)
             {
-                Characteristic characteristic = new Characteristic(Int32.Parse(item.SubItems[0].Text), item.SubItems[1].Text);
-                objectOfInvestigationPojo.characteristics.Add(characteristic);
+                ObjectOfInvestigationPojo objectOfInvestigationPojo = new ObjectOfInvestigationPojo();
+                objectOfInvestigationPojo.name = this.OjectName.Text;
+                foreach (ListViewItem item in selectedCharectlistView.Items)
+                {
+                    Characteristic characteristic = new Characteristic(Int32.Parse(item.SubItems[0].Text), item.SubItems[1].Text);
+                    objectOfInvestigationPojo.characteristics.Add(characteristic);
+                }
+                objectsOfInvestService.addObjectOfInvestigation(objectOfInvestigationPojo);
             }
-            objectsOfInvestService.addObjectOfInvestigation(objectOfInvestigationPojo);
+            else//UPDATE Object of Investigation with characteristics
+            {
+
+            }
         }
 
         private void addCharact_Click(object sender, EventArgs e)
@@ -56,6 +66,25 @@ namespace ArcticDB.Views
             {
                 selectedCharectlistView.Items.Remove(listViewItem);
                 this.availableCharactlistView.Items.Add(listViewItem);
+            }
+        }
+        private void initializeLists()
+        {
+            List<Characteristic> characteristics = characteristicsService.getAllCharacteristics();
+            foreach (Characteristic charact in characteristics)
+            {
+                string[] row = { charact.id.ToString(), charact.name };
+                ListViewItem item = new ListViewItem(row);
+                this.availableCharactlistView.Items.Add(item);
+            }
+            if (selectedObjectOfInvestigation != null) {
+                this.OjectName.Text = selectedObjectOfInvestigation.name;
+                foreach (Characteristic charact in selectedObjectOfInvestigation.characteristics)
+                {
+                    string[] row = { charact.id.ToString(), charact.name };
+                    ListViewItem item = new ListViewItem(row);
+                    this.selectedCharectlistView.Items.Add(item);
+                }
             }
         }
     }

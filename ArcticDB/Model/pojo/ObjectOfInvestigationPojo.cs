@@ -4,7 +4,7 @@ namespace ArcticDB.Model
 {
     public class ObjectOfInvestigationPojo
     {
-        public List<Characteristic> characteristics;
+        public List<Characteristic> characteristics = new List<Characteristic>();
         public string name;
         public int id;
         public ObjectOfInvestigationPojo(int id, string name, List<Characteristic> characteristics)

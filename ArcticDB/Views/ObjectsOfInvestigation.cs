@@ -15,7 +15,7 @@ namespace ArcticDB.Views
     public partial class ObjectsOfInvestigation : Form
     {
         IObjectsOfInvestService objectsOfInvestService = new ObjectsOfInvestServiceImpl();
-        int charactListViewSelectedItemForChange = -1;
+
         public ObjectsOfInvestigation()
         {
             InitializeComponent();
@@ -31,8 +31,9 @@ namespace ArcticDB.Views
         {
             var modObOfInvest = new ObjectOfInvestigationEdit();
             modObOfInvest.ShowDialog(this);
-            var listViewItem = new ListViewItem("item");
-            this.obOfInvestigateListView.Items.Add(listViewItem);
+            this.obOfInvestigateListView.Items.Clear();
+            loadObjectsList();
+            this.obOfInvestigateListView.Refresh();
         }
 
         private void obOfInvestigateListView_SelectedIndexChanged(object sender, EventArgs e)
@@ -63,8 +64,19 @@ namespace ArcticDB.Views
 
         private void changeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var modObOfInvest = new ObjectOfInvestigationEdit(e);
-            modObOfInvest.ShowDialog(this);
+            if (this.obOfInvestigateListView.SelectedIndices.Count > 0)
+            {
+                ObjectOfInvestigationPojo objectOfInvestigation = new ObjectOfInvestigationPojo();
+                objectOfInvestigation.id = Int32.Parse(this.obOfInvestigateListView.SelectedItems[0].SubItems[0].Text);
+                objectOfInvestigation.name = this.obOfInvestigateListView.SelectedItems[0].SubItems[1].Text;
+                objectOfInvestigation.characteristics = objectsOfInvestService.getObjectCharactsByObjctId(objectOfInvestigation.id);
+                var modObOfInvest = new ObjectOfInvestigationEdit(e);
+                modObOfInvest.selectedObjectOfInvestigation = objectOfInvestigation;
+                modObOfInvest.ShowDialog(this);
+                this.obOfInvestigateListView.Items.Clear();
+                loadObjectsList();
+                this.obOfInvestigateListView.Refresh();
+            }
         }
         private void loadObjectsList()
         {
