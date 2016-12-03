@@ -7,19 +7,27 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ArcticDB.Servicies.Impl;
 
 namespace ArcticDB
 {
     public partial class MainWindow : Form
     {
+        IUserService permissionChecker = new UserServiceImpl();
         public MainWindow()
         {
             InitializeComponent();
+            //InitPermissionsControl();
+        }
+
+        private void InitPermissionsControl()
+        {
+            if (permissionChecker.chechUserPermission(Permissions.ADMINISTRATION_MENU_ACCESS))
+                this.администрированиеToolStripMenuItem.Enabled = false;
         }
 
         private void Form1_Load(object sender, EventArgs e)

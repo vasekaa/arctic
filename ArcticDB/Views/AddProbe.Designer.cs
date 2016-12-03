@@ -30,7 +30,7 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.cancelButton = new System.Windows.Forms.Button();
-            this.Save = new System.Windows.Forms.Button();
+            this.SaveSampleButton = new System.Windows.Forms.Button();
             this.addFileButton = new System.Windows.Forms.Button();
             this.keyWordTextBox = new System.Windows.Forms.TextBox();
             this.listView1 = new System.Windows.Forms.ListView();
@@ -39,11 +39,11 @@
             this.listView2 = new System.Windows.Forms.ListView();
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.NameTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.deleteKeyword = new System.Windows.Forms.Button();
+            this.exportButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -65,15 +65,15 @@
             this.cancelButton.Text = "Отмена";
             this.cancelButton.UseVisualStyleBackColor = true;
             // 
-            // Save
+            // SaveSampleButton
             // 
-            this.Save.Location = new System.Drawing.Point(363, 320);
-            this.Save.Name = "Save";
-            this.Save.Size = new System.Drawing.Size(105, 23);
-            this.Save.TabIndex = 4;
-            this.Save.Text = "Сохранить";
-            this.Save.UseVisualStyleBackColor = true;
-            this.Save.Click += new System.EventHandler(this.Save_Click);
+            this.SaveSampleButton.Location = new System.Drawing.Point(363, 320);
+            this.SaveSampleButton.Name = "SaveSampleButton";
+            this.SaveSampleButton.Size = new System.Drawing.Size(105, 23);
+            this.SaveSampleButton.TabIndex = 4;
+            this.SaveSampleButton.Text = "Сохранить";
+            this.SaveSampleButton.UseVisualStyleBackColor = true;
+            this.SaveSampleButton.Click += new System.EventHandler(this.Save_Click);
             // 
             // addFileButton
             // 
@@ -146,12 +146,12 @@
             this.maskedTextBox1.ValidatingType = typeof(System.DateTime);
             this.maskedTextBox1.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBox1_MaskInputRejected);
             // 
-            // textBox1
+            // NameTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(256, 9);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(212, 20);
-            this.textBox1.TabIndex = 12;
+            this.NameTextBox.Location = new System.Drawing.Point(256, 9);
+            this.NameTextBox.Name = "NameTextBox";
+            this.NameTextBox.Size = new System.Drawing.Size(212, 20);
+            this.NameTextBox.TabIndex = 12;
             // 
             // label2
             // 
@@ -171,43 +171,43 @@
             this.label3.TabIndex = 14;
             this.label3.Text = "Дата";
             // 
-            // button1
+            // deleteKeyword
             // 
-            this.button1.Location = new System.Drawing.Point(385, 53);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(83, 23);
-            this.button1.TabIndex = 15;
-            this.button1.Text = "Удалить";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.deleteKeyword.Location = new System.Drawing.Point(385, 53);
+            this.deleteKeyword.Name = "deleteKeyword";
+            this.deleteKeyword.Size = new System.Drawing.Size(83, 23);
+            this.deleteKeyword.TabIndex = 15;
+            this.deleteKeyword.Text = "Удалить";
+            this.deleteKeyword.UseVisualStyleBackColor = true;
+            this.deleteKeyword.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // exportButton
             // 
-            this.button2.Location = new System.Drawing.Point(363, 263);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(105, 23);
-            this.button2.TabIndex = 16;
-            this.button2.Text = "Выгрузить";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.exportButton.Location = new System.Drawing.Point(363, 263);
+            this.exportButton.Name = "exportButton";
+            this.exportButton.Size = new System.Drawing.Size(105, 23);
+            this.exportButton.TabIndex = 16;
+            this.exportButton.Text = "Выгрузить";
+            this.exportButton.UseVisualStyleBackColor = true;
+            this.exportButton.Click += new System.EventHandler(this.button2_Click);
             // 
             // AddProbe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(473, 355);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.exportButton);
+            this.Controls.Add(this.deleteKeyword);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.NameTextBox);
             this.Controls.Add(this.maskedTextBox1);
             this.Controls.Add(this.listView2);
             this.Controls.Add(this.deleteFileButton);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.keyWordTextBox);
             this.Controls.Add(this.addFileButton);
-            this.Controls.Add(this.Save);
+            this.Controls.Add(this.SaveSampleButton);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.label1);
             this.Name = "AddProbe";
@@ -221,19 +221,19 @@
         #endregion
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button cancelButton;
-        private System.Windows.Forms.Button Save;
+        private System.Windows.Forms.Button SaveSampleButton;
         private System.Windows.Forms.Button addFileButton;
         private System.Windows.Forms.TextBox keyWordTextBox;
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.Button deleteFileButton;
         private System.Windows.Forms.ListView listView2;
         private System.Windows.Forms.MaskedTextBox maskedTextBox1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox NameTextBox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button deleteKeyword;
+        private System.Windows.Forms.Button exportButton;
     }
 }

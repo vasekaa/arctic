@@ -7,6 +7,7 @@ using System.Windows.Forms;
 /*
  CREATE TABLE "Sample" ( `id` integer PRIMARY KEY AUTOINCREMENT, `Name` text, `Date` text )
  CREATE TABLE "SampeMeta" ( `id` integer PRIMARY KEY AUTOINCREMENT, `value` text, `Type` integer,`SampeId` integer, FOREIGN KEY(`SampeId`) REFERENCES Sample(id) )    
+
 */
 
 namespace ArcticDB.Servicies

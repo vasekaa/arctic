@@ -9,5 +9,6 @@ namespace ArcticDB.Servicies
         Boolean chechUserPermission(string permissions);
         String getUserPasswordByName(string name);
         void setUserPasswordByName(string name,string password);
+        List<String> getUserPermissionsByUserName(string name);
     }
 }

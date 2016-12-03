@@ -74,6 +74,7 @@
     <Compile Include="Model\pojo\MetaObject.cs" />
     <Compile Include="Model\pojo\Characteristic.cs" />
     <Compile Include="Model\pojo\SamplePojo.cs" />
+    <Compile Include="Permissions.cs" />
     <Compile Include="Servicies\FilesUtil.cs" />
     <Compile Include="Servicies\Impl\SamplesServiceImpl.cs" />
     <Compile Include="Servicies\Impl\UserServiceImpl.cs" />

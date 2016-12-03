@@ -1,5 +1,6 @@
 ﻿using ArcticDB.Model;
 using ArcticDB.Servicies;
+using ArcticDB.Servicies.Impl;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -17,6 +18,7 @@ namespace ArcticDB.Views
     public partial class AddProbe : Form
     {
         ISamplesService sampleService = new SamplesServiceImpl();
+        IUserService permissionChecker = new UserServiceImpl();
         string tempPath;
         string UserTmpPathString;
         SamplePojo selectedSample=null;
@@ -24,6 +26,7 @@ namespace ArcticDB.Views
         public AddProbe(int sampleId)
         {
             InitializeComponent();
+            InitPermissionsControl();
             tempPath = System.IO.Path.GetTempPath();
             UserTmpPathString = System.IO.Path.Combine(tempPath, "ReportsArctic");
 
@@ -43,6 +46,26 @@ namespace ArcticDB.Views
                 else
                    initComponentsBySample();
             }
+        }
+
+        private void InitPermissionsControl()
+        {
+            if(permissionChecker.chechUserPermission(Permissions.ADD_SAMPLES))
+                this.SaveSampleButton.Enabled = false;
+            if (permissionChecker.chechUserPermission(Permissions.ADD_FILE))
+                this.addFileButton.Enabled = false;
+            if (permissionChecker.chechUserPermission(Permissions.ADD_KEYWORDS))
+                this.keyWordTextBox.Enabled = false;
+            if (permissionChecker.chechUserPermission(Permissions.REMOVE_FILE))
+                this.deleteFileButton.Enabled = false;
+            if (permissionChecker.chechUserPermission(Permissions.ADD_SAMPLES))
+                this.maskedTextBox1.Enabled = false;
+            if (permissionChecker.chechUserPermission(Permissions.ADD_SAMPLES))
+                this.NameTextBox.Enabled = false;
+            if (permissionChecker.chechUserPermission(Permissions.ADD_KEYWORDS))
+                this.deleteKeyword.Enabled = false;
+            if (permissionChecker.chechUserPermission(Permissions.EXPORT_FILES))
+                this.exportButton.Enabled = false;
         }
 
         private void initComponentsBySample()
@@ -68,7 +91,7 @@ namespace ArcticDB.Views
                 }
                 
             }
-            this.textBox1.Text = selectedSample.name;
+            this.NameTextBox.Text = selectedSample.name;
         }
 
         private void copyFilesFromApplicationToTmpDir(string visibleFileName, string storageFileName)
@@ -142,7 +165,7 @@ namespace ArcticDB.Views
         private void Save_Click(object sender, EventArgs e)
         {
             SamplePojo sample = new SamplePojo();
-            sample.name = textBox1.Text;
+            sample.name = NameTextBox.Text;
             sample.Date = maskedTextBox1.Text.ToString();
             List<MetaObject> metaObjests = new List<MetaObject>();
             ArrayList filesList = new ArrayList();

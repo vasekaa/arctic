@@ -1,5 +1,6 @@
 ﻿using ArcticDB.Model;
 using ArcticDB.Servicies;
+using ArcticDB.Servicies.Impl;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,11 +17,20 @@ namespace ArcticDB.Views
     public partial class ProbList : Form
     {
         ISamplesService sampleService = new SamplesServiceImpl();
-
+        IUserService permissionChecker = new UserServiceImpl();
         public ProbList()
         {
             InitializeComponent();
+            InitPermissionsControl();
             fillSampleList();
+        }
+
+        private void InitPermissionsControl()
+        {
+            if (permissionChecker.chechUserPermission(Permissions.ADD_SAMPLES))
+                this.AddProbButton.Enabled = false;
+            if (permissionChecker.chechUserPermission(Permissions.ADD_SAMPLES))
+                this.RemoveProbButton.Enabled = false;
         }
 
         private void fillSampleList()

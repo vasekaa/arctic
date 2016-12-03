@@ -16,6 +16,11 @@ namespace ArcticDB.Servicies
             throw new NotImplementedException();
         }
 
+        public List<string> getUserPermissionsByUserName(string name)
+        {
+            throw new NotImplementedException();
+        }
+
         public void setUserPasswordByName(string name, string password)
         {
             throw new NotImplementedException();
