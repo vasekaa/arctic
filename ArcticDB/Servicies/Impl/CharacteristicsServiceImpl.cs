@@ -7,6 +7,9 @@ using System.Data.SqlClient;
 using System.Data.SQLite;
 using System.Windows.Forms;
 
+/*
+ CREATE TABLE "InputParamaters" ( `id` integer PRIMARY KEY AUTOINCREMENT, `name` text, `type` integer )
+*/
 namespace ArcticDB.Servicies
 {
     internal class CharacteristicsServiceImpl : ICharacteristicsService

@@ -7,5 +7,7 @@ namespace ArcticDB.Servicies
     {
         void setUserPermissions(string login);
         Boolean chechUserPermission(string permissions);
+        String getUserPasswordByName(string name);
+        void setUserPasswordByName(string name,string password);
     }
 }

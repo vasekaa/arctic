@@ -11,6 +11,16 @@ namespace ArcticDB.Servicies
             return true;
         }
 
+        public string getUserPasswordByName(string name)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void setUserPasswordByName(string name, string password)
+        {
+            throw new NotImplementedException();
+        }
+
         public void setUserPermissions(string login)
         {
             ApplicationState.User user  = new ApplicationState.User(login);

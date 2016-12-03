@@ -31,12 +31,15 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.пробыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AddProbeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ObjectsOfInvestigationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.probListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.доступныеХарактеристикиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ObjectsOfInvestigationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AvailableCharacteristicsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.ExportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.PrintToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.администрированиеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.changePasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.changeWarningMsgToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.очиститьМестоToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ProbeView = new System.Windows.Forms.DataGridView();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ProbeView)).BeginInit();
@@ -46,11 +49,10 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.пробыToolStripMenuItem,
-            this.ObjectsOfInvestigationToolStripMenuItem,
             this.toolStripMenuItem1,
+            this.ObjectsOfInvestigationToolStripMenuItem,
             this.AvailableCharacteristicsToolStripMenuItem1,
-            this.ExportToolStripMenuItem,
-            this.PrintToolStripMenuItem});
+            this.администрированиеToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(523, 24);
@@ -60,26 +62,26 @@
             // пробыToolStripMenuItem
             // 
             this.пробыToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.AddProbeToolStripMenuItem});
+            this.AddProbeToolStripMenuItem,
+            this.probListToolStripMenuItem});
             this.пробыToolStripMenuItem.Name = "пробыToolStripMenuItem";
-            this.пробыToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
-            this.пробыToolStripMenuItem.Text = "Пробы";
+            this.пробыToolStripMenuItem.Size = new System.Drawing.Size(98, 20);
+            this.пробыToolStripMenuItem.Text = "Исследования";
             // 
             // AddProbeToolStripMenuItem
             // 
             this.AddProbeToolStripMenuItem.Name = "AddProbeToolStripMenuItem";
             this.AddProbeToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Q)));
-            this.AddProbeToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
-            this.AddProbeToolStripMenuItem.Text = "Добавить пробу";
+            this.AddProbeToolStripMenuItem.Size = new System.Drawing.Size(249, 22);
+            this.AddProbeToolStripMenuItem.Text = "Добавить исследование";
             this.AddProbeToolStripMenuItem.Click += new System.EventHandler(this.AddProbeToolStripMenuItem_Click);
             // 
-            // ObjectsOfInvestigationToolStripMenuItem
+            // probListToolStripMenuItem
             // 
-            this.ObjectsOfInvestigationToolStripMenuItem.Name = "ObjectsOfInvestigationToolStripMenuItem";
-            this.ObjectsOfInvestigationToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
-            this.ObjectsOfInvestigationToolStripMenuItem.Size = new System.Drawing.Size(147, 20);
-            this.ObjectsOfInvestigationToolStripMenuItem.Text = "Обьекты исследования";
-            this.ObjectsOfInvestigationToolStripMenuItem.Click += new System.EventHandler(this.ObjectsOfInvestigationToolStripMenuItem_Click);
+            this.probListToolStripMenuItem.Name = "probListToolStripMenuItem";
+            this.probListToolStripMenuItem.Size = new System.Drawing.Size(249, 22);
+            this.probListToolStripMenuItem.Text = "Список исследований";
+            this.probListToolStripMenuItem.Click += new System.EventHandler(this.probListToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
@@ -94,6 +96,14 @@
             this.доступныеХарактеристикиToolStripMenuItem.Size = new System.Drawing.Size(226, 22);
             this.доступныеХарактеристикиToolStripMenuItem.Text = "Доступные Характеристики";
             // 
+            // ObjectsOfInvestigationToolStripMenuItem
+            // 
+            this.ObjectsOfInvestigationToolStripMenuItem.Name = "ObjectsOfInvestigationToolStripMenuItem";
+            this.ObjectsOfInvestigationToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
+            this.ObjectsOfInvestigationToolStripMenuItem.Size = new System.Drawing.Size(147, 20);
+            this.ObjectsOfInvestigationToolStripMenuItem.Text = "Обьекты исследования";
+            this.ObjectsOfInvestigationToolStripMenuItem.Click += new System.EventHandler(this.ObjectsOfInvestigationToolStripMenuItem_Click);
+            // 
             // AvailableCharacteristicsToolStripMenuItem1
             // 
             this.AvailableCharacteristicsToolStripMenuItem1.Name = "AvailableCharacteristicsToolStripMenuItem1";
@@ -101,17 +111,36 @@
             this.AvailableCharacteristicsToolStripMenuItem1.Text = "Характеристики";
             this.AvailableCharacteristicsToolStripMenuItem1.Click += new System.EventHandler(this.AvailableCharacteristicsToolStripMenuItem1_Click);
             // 
-            // ExportToolStripMenuItem
+            // администрированиеToolStripMenuItem
             // 
-            this.ExportToolStripMenuItem.Name = "ExportToolStripMenuItem";
-            this.ExportToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
-            this.ExportToolStripMenuItem.Text = "Экспорт";
+            this.администрированиеToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.changePasswordToolStripMenuItem,
+            this.changeWarningMsgToolStripMenuItem,
+            this.очиститьМестоToolStripMenuItem});
+            this.администрированиеToolStripMenuItem.Name = "администрированиеToolStripMenuItem";
+            this.администрированиеToolStripMenuItem.Size = new System.Drawing.Size(134, 20);
+            this.администрированиеToolStripMenuItem.Text = "Администрирование";
             // 
-            // PrintToolStripMenuItem
+            // changePasswordToolStripMenuItem
             // 
-            this.PrintToolStripMenuItem.Name = "PrintToolStripMenuItem";
-            this.PrintToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
-            this.PrintToolStripMenuItem.Text = "Печать";
+            this.changePasswordToolStripMenuItem.Name = "changePasswordToolStripMenuItem";
+            this.changePasswordToolStripMenuItem.Size = new System.Drawing.Size(280, 22);
+            this.changePasswordToolStripMenuItem.Text = "Сменить пароль";
+            this.changePasswordToolStripMenuItem.Click += new System.EventHandler(this.changePasswordToolStripMenuItem_Click);
+            // 
+            // changeWarningMsgToolStripMenuItem
+            // 
+            this.changeWarningMsgToolStripMenuItem.Name = "changeWarningMsgToolStripMenuItem";
+            this.changeWarningMsgToolStripMenuItem.Size = new System.Drawing.Size(280, 22);
+            this.changeWarningMsgToolStripMenuItem.Text = "Задать информационное сообщение";
+            this.changeWarningMsgToolStripMenuItem.Click += new System.EventHandler(this.changeWarningMsgToolStripMenuItem_Click);
+            // 
+            // очиститьМестоToolStripMenuItem
+            // 
+            this.очиститьМестоToolStripMenuItem.Name = "очиститьМестоToolStripMenuItem";
+            this.очиститьМестоToolStripMenuItem.Size = new System.Drawing.Size(280, 22);
+            this.очиститьМестоToolStripMenuItem.Text = "Очистить место";
+            this.очиститьМестоToolStripMenuItem.Click += new System.EventHandler(this.cleanSpaceToolStripMenuItem_Click);
             // 
             // ProbeView
             // 
@@ -149,9 +178,12 @@
         private System.Windows.Forms.ToolStripMenuItem AddProbeToolStripMenuItem;
         private System.Windows.Forms.DataGridView ProbeView;
         private System.Windows.Forms.ToolStripMenuItem доступныеХарактеристикиToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ExportToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem PrintToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem AvailableCharacteristicsToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem probListToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem администрированиеToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem changePasswordToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem changeWarningMsgToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem очиститьМестоToolStripMenuItem;
     }
 }
 

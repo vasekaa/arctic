@@ -10,6 +10,7 @@ namespace ArcticDB
     static class Program
     {
         public static SQLiteConnection conn = null;
+        public static string applicationReportsPath = ".\\ReportsArctic\\";
         /// <summary>
         /// The main entry point for the application.
         /// </summary>

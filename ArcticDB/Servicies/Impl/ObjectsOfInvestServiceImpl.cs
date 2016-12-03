@@ -3,7 +3,11 @@ using System.Collections.Generic;
 using ArcticDB.Model;
 using System.Data.SQLite;
 using System.Windows.Forms;
-
+/*
+CREATE TABLE SampeTypeParameters ( SampeTypeId integer, InputParameterId integer )
+CREATE TABLE SampleType ( id integer PRIMARY KEY AUTOINCREMENT, name text )
+CREATE TABLE `SampleImputPamameters` ( `SampleId` integer, `InputParameterId` integer NOT NULL, `value` text, FOREIGN KEY(`InputParameterId`) REFERENCES InputParamaters(id) ) 
+*/
 namespace ArcticDB.Servicies
 {
     internal class ObjectsOfInvestServiceImpl : IObjectsOfInvestService

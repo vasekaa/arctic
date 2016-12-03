@@ -71,7 +71,13 @@
   <ItemGroup>
     <Compile Include="Model\CharacteristicsTypes.cs" />
     <Compile Include="Model\pojo\ApplicationState.cs" />
+    <Compile Include="Model\pojo\MetaObject.cs" />
     <Compile Include="Model\pojo\Characteristic.cs" />
+    <Compile Include="Model\pojo\SamplePojo.cs" />
+    <Compile Include="Servicies\FilesUtil.cs" />
+    <Compile Include="Servicies\Impl\SamplesServiceImpl.cs" />
+    <Compile Include="Servicies\Impl\UserServiceImpl.cs" />
+    <Compile Include="Servicies\ISamplesService.cs" />
     <Compile Include="Servicies\ISamplTypesService.cs" />
     <Compile Include="Servicies\ICharacteristicsService.cs" />
     <Compile Include="Model\pojo\ObjectOfInvestigationPojo.cs" />
@@ -81,6 +87,12 @@
     </Compile>
     <Compile Include="Views\AddProbe.Designer.cs">
       <DependentUpon>AddProbe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ChangePassword.Designer.cs">
+      <DependentUpon>ChangePassword.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Characteriscics.cs">
       <SubType>Form</SubType>
@@ -122,8 +134,23 @@
       <DependentUpon>ObjectsOfInvestigation.cs</DependentUpon>
     </Compile>
     <Compile Include="Servicies\Impl\ObjectsOfInvestServiceImpl.cs" />
+    <Compile Include="Views\ProbList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ProbList.Designer.cs">
+      <DependentUpon>ProbList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WarningMessageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\WarningMessageForm.Designer.cs">
+      <DependentUpon>WarningMessageForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Views\AddProbe.resx">
       <DependentUpon>AddProbe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ChangePassword.resx">
+      <DependentUpon>ChangePassword.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Characteriscics.resx">
       <DependentUpon>Characteriscics.cs</DependentUpon>
@@ -149,9 +176,15 @@
     <EmbeddedResource Include="Views\ObjectsOfInvestigation.resx">
       <DependentUpon>ObjectsOfInvestigation.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\ProbList.resx">
+      <DependentUpon>ProbList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\WarningMessageForm.resx">
+      <DependentUpon>WarningMessageForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <Compile Include="Properties\Settings.Designer.cs">
