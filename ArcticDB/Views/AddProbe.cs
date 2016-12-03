@@ -73,7 +73,7 @@ namespace ArcticDB.Views
 
         private void copyFilesFromApplicationToTmpDir(string visibleFileName, string storageFileName)
         {
-            File.Copy(Path.Combine(Program.applicationReportsPath, storageFileName), Path.Combine(UserTmpPathString, visibleFileName), true);
+            File.Copy(Path.Combine(Program.applicationReportsPath, storageFileName), Path.Combine(UserTmpPathString, storageFileName), true);
         }
 
         private void AddProbe_Load(object sender, EventArgs e)
@@ -155,10 +155,10 @@ namespace ArcticDB.Views
             {
                 MetaObject key = new MetaObject(1, item.SubItems[0].Text+"-->"+ item.SubItems[1].Text);
                 metaObjests.Add(key);
-                filesList.Add(item.SubItems[1].Text);
+                filesList.Add(item.SubItems[1].Text);//storageNames
             }
             sample.metaList = metaObjests;
-            if (selectedSample!=null)
+            if (selectedSample!=null)//EditSample case
             {
                 sampleService.removeMetaBySample(selectedSample.id);
                 sample.id = selectedSample.id;
@@ -166,7 +166,7 @@ namespace ArcticDB.Views
                 sampleService.addMetaBySample(sample);
                 copyFilesToAppDir(filesList);
             }
-            else
+            else//SaveNewSample case
             {
                 sampleService.addSample(sample);
                 copyFilesToAppDir(filesList);
@@ -197,10 +197,24 @@ namespace ArcticDB.Views
             if (listView2.SelectedItems.Count == 1)
             {
                 ListView.SelectedListViewItemCollection items = listView2.SelectedItems;
+                String storageFileName = items[0].SubItems[1].Text.ToString();
                 String fileToOpen = items[0].SubItems[0].Text.ToString();
-                Path.Combine(UserTmpPathString, fileToOpen);
+                File.Copy(Path.Combine(UserTmpPathString, storageFileName), Path.Combine(UserTmpPathString, fileToOpen), true);
                 System.Diagnostics.Process.Start(Path.Combine(UserTmpPathString, fileToOpen));
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog folderBrowserDialog1 = new FolderBrowserDialog();
+            if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
+            {
+                foreach (ListViewItem eachItem in listView2.SelectedItems)
+                {
+                    File.Copy(Path.Combine(UserTmpPathString, eachItem.SubItems[1].Text), Path.Combine(folderBrowserDialog1.SelectedPath, eachItem.SubItems[0].Text), true);
+                }
+            }
+            
         }
     }
 }
