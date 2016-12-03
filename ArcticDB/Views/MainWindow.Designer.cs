@@ -98,6 +98,7 @@
             // 
             // ObjectsOfInvestigationToolStripMenuItem
             // 
+            this.ObjectsOfInvestigationToolStripMenuItem.Enabled = false;
             this.ObjectsOfInvestigationToolStripMenuItem.Name = "ObjectsOfInvestigationToolStripMenuItem";
             this.ObjectsOfInvestigationToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
             this.ObjectsOfInvestigationToolStripMenuItem.Size = new System.Drawing.Size(147, 20);
@@ -106,6 +107,7 @@
             // 
             // AvailableCharacteristicsToolStripMenuItem1
             // 
+            this.AvailableCharacteristicsToolStripMenuItem1.Enabled = false;
             this.AvailableCharacteristicsToolStripMenuItem1.Name = "AvailableCharacteristicsToolStripMenuItem1";
             this.AvailableCharacteristicsToolStripMenuItem1.Size = new System.Drawing.Size(107, 20);
             this.AvailableCharacteristicsToolStripMenuItem1.Text = "Характеристики";
