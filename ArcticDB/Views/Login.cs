@@ -15,7 +15,7 @@ namespace ArcticDB
     public partial class Login : Form
     {
         ILoginService loginService = new LoginServiceImpl();
-        IUserService userService = new UserServiceImpl();
+        IUserService userService = new UserServiceStub();
 
         public Login()
         {

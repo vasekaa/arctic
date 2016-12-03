@@ -27,9 +27,9 @@ namespace ArcticDB.Views
 
         private void InitPermissionsControl()
         {
-            if (permissionChecker.chechUserPermission(Permissions.ADD_SAMPLES))
+            if (!permissionChecker.chechUserPermission(Permissions.ADD_SAMPLES))
                 this.AddProbButton.Enabled = false;
-            if (permissionChecker.chechUserPermission(Permissions.ADD_SAMPLES))
+            if (!permissionChecker.chechUserPermission(Permissions.ADD_SAMPLES))
                 this.RemoveProbButton.Enabled = false;
         }
 

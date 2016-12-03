@@ -21,12 +21,12 @@ namespace ArcticDB
         public MainWindow()
         {
             InitializeComponent();
-            //InitPermissionsControl();
+            InitPermissionsControl();
         }
 
         private void InitPermissionsControl()
         {
-            if (permissionChecker.chechUserPermission(Permissions.ADMINISTRATION_MENU_ACCESS))
+            if (!permissionChecker.chechUserPermission(Permissions.ADMINISTRATION_MENU_ACCESS))
                 this.администрированиеToolStripMenuItem.Enabled = false;
         }
 

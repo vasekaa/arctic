@@ -50,21 +50,21 @@ namespace ArcticDB.Views
 
         private void InitPermissionsControl()
         {
-            if(permissionChecker.chechUserPermission(Permissions.ADD_SAMPLES))
+            if(!permissionChecker.chechUserPermission(Permissions.ADD_SAMPLES))
                 this.SaveSampleButton.Enabled = false;
-            if (permissionChecker.chechUserPermission(Permissions.ADD_FILE))
+            if (!permissionChecker.chechUserPermission(Permissions.ADD_FILE))
                 this.addFileButton.Enabled = false;
-            if (permissionChecker.chechUserPermission(Permissions.ADD_KEYWORDS))
+            if (!permissionChecker.chechUserPermission(Permissions.ADD_KEYWORDS))
                 this.keyWordTextBox.Enabled = false;
-            if (permissionChecker.chechUserPermission(Permissions.REMOVE_FILE))
+            if (!permissionChecker.chechUserPermission(Permissions.REMOVE_FILE))
                 this.deleteFileButton.Enabled = false;
-            if (permissionChecker.chechUserPermission(Permissions.ADD_SAMPLES))
+            if (!permissionChecker.chechUserPermission(Permissions.ADD_SAMPLES))
                 this.maskedTextBox1.Enabled = false;
-            if (permissionChecker.chechUserPermission(Permissions.ADD_SAMPLES))
+            if (!permissionChecker.chechUserPermission(Permissions.ADD_SAMPLES))
                 this.NameTextBox.Enabled = false;
-            if (permissionChecker.chechUserPermission(Permissions.ADD_KEYWORDS))
+            if (!permissionChecker.chechUserPermission(Permissions.ADD_KEYWORDS))
                 this.deleteKeyword.Enabled = false;
-            if (permissionChecker.chechUserPermission(Permissions.EXPORT_FILES))
+            if (!permissionChecker.chechUserPermission(Permissions.EXPORT_FILES))
                 this.exportButton.Enabled = false;
         }
 
