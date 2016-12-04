@@ -1,0 +1,2 @@
+BackupDb.db
+ReportsArctic\*
