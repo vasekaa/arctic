@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("ArcticDB")]
+[assembly: AssemblyTitle("Interregional Expedition Center 'Arctic'")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("NetCracker")]
+[assembly: AssemblyCompany("Interregional Expedition Center 'Arctic'")]
 [assembly: AssemblyProduct("ArcticDB")]
-[assembly: AssemblyCopyright("Copyright © NetCracker 2016")]
+[assembly: AssemblyCopyright("Copyright © Interregional Expedition Center 'Arctic' 2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

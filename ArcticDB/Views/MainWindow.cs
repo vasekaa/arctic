@@ -12,6 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ArcticDB.Servicies.Impl;
+using System.Diagnostics;
 
 namespace ArcticDB
 {
@@ -28,6 +29,8 @@ namespace ArcticDB
         {
             if (!permissionChecker.chechUserPermission(Permissions.ADMINISTRATION_MENU_ACCESS))
                 this.администрированиеToolStripMenuItem.Enabled = false;
+            if (!permissionChecker.chechUserPermission(Permissions.ADD_SAMPLES))
+                this.AddProbeToolStripMenuItem.Enabled = false;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -112,6 +115,34 @@ namespace ArcticDB
             {
                 MessageBox.Show(ex.Message,
                         "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+
+        private void ExportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Program.backUpDb();
+            FolderBrowserDialog folderBrowserDialog1 = new FolderBrowserDialog();
+            if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
+            {
+                Process ArchiveProcess = Process.Start("7za.exe", "a -tzip " + Program.dbExportFileName + " @DBExportList.txt");
+                ArchiveProcess.WaitForExit();
+                File.Copy(Program.dbExportFileName, Path.Combine(folderBrowserDialog1.SelectedPath, Program.dbExportFileName), true);
+            }  
+        }
+
+        private void ImportDBToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Zip Files|*.zip";
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                File.Copy(openFileDialog.FileName, Path.Combine(".\\", Program.dbExportFileName), true);
+                Process unArchiveProcess = Process.Start("7za.exe", "x DBExported.zip -y");
+                unArchiveProcess.WaitForExit();
+                Program.CloseDbConnection();
+                GC.Collect();
+                File.Copy(Path.Combine(".\\", Program.BackUpDBName), Path.Combine(".\\", Program.ActiveDBName), true);
+                Program.StartDBConnection();
             }
         }
     }

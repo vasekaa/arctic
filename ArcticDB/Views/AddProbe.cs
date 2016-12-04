@@ -29,7 +29,7 @@ namespace ArcticDB.Views
             InitPermissionsControl();
             tempPath = System.IO.Path.GetTempPath();
             UserTmpPathString = System.IO.Path.Combine(tempPath, "ReportsArctic");
-
+            System.IO.Directory.CreateDirectory(UserTmpPathString);
             if (sampleId == -1)
             {
                 maskedTextBox1.Text = DateTime.Today.ToShortDateString();
@@ -106,7 +106,6 @@ namespace ArcticDB.Views
 
         private void addFile_Click(object sender, EventArgs e)
         {
-            System.IO.Directory.CreateDirectory(UserTmpPathString);
             string randomFileName = System.Guid.NewGuid().ToString();
             OpenFileDialog openFileDialog = new OpenFileDialog();
             //openFileDialog.Filter = "Файлы Excel (*.xls; *.xlsx) | *.xls; *.xlsx";

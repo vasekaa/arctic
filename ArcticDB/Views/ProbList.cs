@@ -92,5 +92,45 @@ namespace ArcticDB.Views
                 }
             }
         }
+
+        private void fileNameTextBoxOnClick(object sender, EventArgs e)
+        {
+            this.nameSearchTextBox.Text = "";
+            this.keysSearchTextBox1.Text = "";
+        }
+
+        private void searchButton_Click(object sender, EventArgs e)
+        {
+            String fileName = this.nameSearchTextBox.Text;
+            String dateFrom = this.dateSearchMaskedTextBox.Text;
+            String dateTo = this.dateSearchMaskedTextBoxTo.Text;
+            DateTime dateFromDate, dateToDate;
+            String[] keyWords = this.keysSearchTextBox1.Text.ToString().Split();     
+            List<SamplePojo> samples = sampleService.getSamplesByKeywords(keyWords);
+            this.listView1.Items.Clear();
+            foreach (SamplePojo sample in samples)
+            {
+                if(fileName!= null && !fileName.Equals("") && !sample.name.Contains(fileName))
+                {
+                    continue; 
+                }
+                if (DateTime.TryParse(dateFrom, out dateFromDate)  && (DateTime.Compare(DateTime.Parse(sample.Date), dateFromDate) <0))
+                {
+                    continue;
+                }
+                if (DateTime.TryParse(dateTo, out dateToDate) && (DateTime.Compare(DateTime.Parse(sample.Date), dateToDate) > 0))
+                {
+                    continue;
+                }
+                string[] row = { sample.name, sample.Date, sample.getKeysString(), sample.id.ToString() };
+                ListViewItem item = new ListViewItem(row);
+                this.listView1.Items.Add(item);
+            }
+        }
+
+        private void ProbList_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

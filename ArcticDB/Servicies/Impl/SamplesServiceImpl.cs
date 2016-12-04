@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using ArcticDB.Model;
 using System.Data.SQLite;
 using System.Windows.Forms;
+using System.Text;
 
 /*
  CREATE TABLE "Sample" ( `id` integer PRIMARY KEY AUTOINCREMENT, `Name` text, `Date` text )
@@ -23,8 +24,8 @@ namespace ArcticDB.Servicies
         private const string DELETE_ONE = "DELETE FROM Sample WHERE id = @id";
         private const string DELETE_META_BY_SAMPLE_ID = "DELETE FROM SampeMeta WHERE SampeId = @SampeId";
         private const string UPDATE = "UPDATE Sample SET name= @name,Date= @Date  WHERE id = @id";
-        private const string DELETE_META_ONE = "DELETE FROM SampeMeta WHERE id = @id";
         private const string SELECT_ALL_META_BY_TYPE = "SELECT id, Type, value, SampeId FROM SampeMeta WHERE Type=@Type";
+        private const string SELECT_SAMPLES_BY_KEYWORD = "Select DISTINCT Sample.id AS id,Sample.name AS Name ,Sample.Date AS Date FROM Sample LEFT JOIN SampeMeta ON Sample.id = SampeMeta.SampeId WHERE SampeMeta.value like";
 
 
         public List<SamplePojo> getAllSamples()
@@ -195,7 +196,43 @@ namespace ArcticDB.Servicies
 
         public List<SamplePojo> getSamplesByKeywords(string[] keywords)
         {
-            throw new NotImplementedException();
+            if (keywords == null)
+                return null;
+            SQLiteCommand cmd = new SQLiteCommand(Program.conn);
+            List<SamplePojo> samplePojoList = new List<SamplePojo>();
+            StringBuilder query = new StringBuilder(SELECT_SAMPLES_BY_KEYWORD);
+            for (int i = 0; i< keywords.Length; i++)
+            {
+                String word = keywords[i];
+                query.Append(" \"%" + word + "%\"");
+                if(i!= keywords.Length-1)
+                    query.Append(" OR SampeMeta.value like");
+            }
+            cmd.CommandText = query.ToString();
+            try
+            {
+                SQLiteDataReader r = cmd.ExecuteReader();
+                SamplePojo samplePojo = null;
+                while (r.Read())
+                {
+                    samplePojo = new SamplePojo(Int32.Parse(r["id"].ToString()), r["Name"].ToString(), r["Date"].ToString());
+                    samplePojoList.Add(samplePojo);
+                    Console.WriteLine(samplePojo);
+                }
+                r.Close();
+            }
+            catch (SQLiteException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            foreach (SamplePojo sample in samplePojoList)
+            {
+                List<MetaObject> metaList = getMetaBySampleId(sample.id, -1);
+                sample.metaList = metaList;
+            }
+
+            return samplePojoList;
         }
 
         public List<string> getFilelistBySample(int samplePojoId)
