@@ -21,8 +21,8 @@ AppSupportURL={#MyAppURL}
 AppUpdatesURL={#MyAppURL}
 DefaultDirName={pf}\ArcticDB
 DefaultGroupName={#MyAppName}
-LicenseFile=c:\Users\vaab0315\Documents\Visual Studio 2015\Projects\ArcticDB\lisc.txt
-OutputDir=c:\Users\vaab0315\Documents\Visual Studio 2015\Projects\ArcticDB\output
+LicenseFile=lisc.txt
+OutputDir=output
 OutputBaseFilename=setup
 Compression=lzma
 SolidCompression=yes
@@ -39,30 +39,33 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 Name: "quicklaunchicon"; Description: "{cm:CreateQuickLaunchIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked; OnlyBelowVersion: 0,6.1
 
 [Files]
-Source: "c:\Users\vaab0315\Documents\Visual Studio 2015\Projects\ArcticDB\ArcticDB\bin\Release\ArcticDB.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "c:\Users\vaab0315\Documents\Visual Studio 2015\Projects\ArcticDB\ArcticDB\bin\Release\ReportsArctic\*"; DestDir: "{app}\ReportsArctic"; Flags: ignoreversion recursesubdirs createallsubdirs
-Source: "c:\Users\vaab0315\Documents\Visual Studio 2015\Projects\ArcticDB\ArcticDB\bin\Release\x64\*"; DestDir: "{app}\x64"; Flags: ignoreversion recursesubdirs createallsubdirs
-Source: "c:\Users\vaab0315\Documents\Visual Studio 2015\Projects\ArcticDB\ArcticDB\bin\Release\x86\*"; DestDir: "{app}\x86"; Flags: ignoreversion recursesubdirs createallsubdirs
-Source: "c:\Users\vaab0315\Documents\Visual Studio 2015\Projects\ArcticDB\ArcticDB\extra\7za.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "c:\Users\vaab0315\Documents\Visual Studio 2015\Projects\ArcticDB\ArcticDB\extra\arctic.db"; DestDir: "{app}"; Flags: ignoreversion
-Source: "c:\Users\vaab0315\Documents\Visual Studio 2015\Projects\ArcticDB\ArcticDB\bin\Release\ArcticDB.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "c:\Users\vaab0315\Documents\Visual Studio 2015\Projects\ArcticDB\ArcticDB\bin\Release\ArcticDB.exe.config"; DestDir: "{app}"; Flags: ignoreversion
-Source: "c:\Users\vaab0315\Documents\Visual Studio 2015\Projects\ArcticDB\ArcticDB\bin\Release\ArcticDB.pdb"; DestDir: "{app}"; Flags: ignoreversion
-Source: "c:\Users\vaab0315\Documents\Visual Studio 2015\Projects\ArcticDB\ArcticDB\bin\Release\ArcticDB.vshost.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "c:\Users\vaab0315\Documents\Visual Studio 2015\Projects\ArcticDB\ArcticDB\bin\Release\ArcticDB.vshost.exe.config"; DestDir: "{app}"; Flags: ignoreversion
-Source: "c:\Users\vaab0315\Documents\Visual Studio 2015\Projects\ArcticDB\ArcticDB\bin\Release\ArcticDB.vshost.exe.manifest"; DestDir: "{app}"; Flags: ignoreversion
-Source: "c:\Users\vaab0315\Documents\Visual Studio 2015\Projects\ArcticDB\ArcticDB\extra\DBExportList.txt"; DestDir: "{app}"; Flags: ignoreversion
-Source: "c:\Users\vaab0315\Documents\Visual Studio 2015\Projects\ArcticDB\ArcticDB\bin\Release\EntityFramework.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "c:\Users\vaab0315\Documents\Visual Studio 2015\Projects\ArcticDB\ArcticDB\bin\Release\EntityFramework.SqlServer.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "c:\Users\vaab0315\Documents\Visual Studio 2015\Projects\ArcticDB\ArcticDB\bin\Release\EntityFramework.SqlServer.xml"; DestDir: "{app}"; Flags: ignoreversion
-Source: "c:\Users\vaab0315\Documents\Visual Studio 2015\Projects\ArcticDB\ArcticDB\bin\Release\EntityFramework.xml"; DestDir: "{app}"; Flags: ignoreversion
-Source: "c:\Users\vaab0315\Documents\Visual Studio 2015\Projects\ArcticDB\ArcticDB\bin\Release\System.Data.SQLite.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "c:\Users\vaab0315\Documents\Visual Studio 2015\Projects\ArcticDB\ArcticDB\bin\Release\System.Data.SQLite.EF6.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "c:\Users\vaab0315\Documents\Visual Studio 2015\Projects\ArcticDB\ArcticDB\bin\Release\System.Data.SQLite.Linq.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "c:\Users\vaab0315\Documents\Visual Studio 2015\Projects\ArcticDB\ArcticDB\bin\Release\System.Data.SQLite.xml"; DestDir: "{app}"; Flags: ignoreversion
-Source: "c:\Users\vaab0315\Documents\Visual Studio 2015\Projects\ArcticDB\ArcticDB\extra\warning.txt"; DestDir: "{app}"; Flags: ignoreversion
+Source: "ArcticDB\bin\Release\ArcticDB.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "ArcticDB\bin\Release\ReportsArctic\*"; DestDir: "{app}\ReportsArctic"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "ArcticDB\bin\Release\x64\*"; DestDir: "{app}\x64"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "ArcticDB\bin\Release\x86\*"; DestDir: "{app}\x86"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "ArcticDB\extra\7za.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "ArcticDB\extra\arctic.db"; DestDir: "{app}"; Flags: ignoreversion
+Source: "ArcticDB\bin\Release\ArcticDB.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "ArcticDB\bin\Release\ArcticDB.exe.config"; DestDir: "{app}"; Flags: ignoreversion
+Source: "ArcticDB\bin\Release\ArcticDB.pdb"; DestDir: "{app}"; Flags: ignoreversion
+Source: "ArcticDB\bin\Release\ArcticDB.vshost.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "ArcticDB\bin\Release\ArcticDB.vshost.exe.config"; DestDir: "{app}"; Flags: ignoreversion
+Source: "ArcticDB\bin\Release\ArcticDB.vshost.exe.manifest"; DestDir: "{app}"; Flags: ignoreversion
+Source: "ArcticDB\extra\DBExportList.txt"; DestDir: "{app}"; Flags: ignoreversion
+Source: "ArcticDB\bin\Release\EntityFramework.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "ArcticDB\bin\Release\EntityFramework.SqlServer.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "ArcticDB\bin\Release\EntityFramework.SqlServer.xml"; DestDir: "{app}"; Flags: ignoreversion
+Source: "ArcticDB\bin\Release\EntityFramework.xml"; DestDir: "{app}"; Flags: ignoreversion
+Source: "ArcticDB\bin\Release\System.Data.SQLite.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "ArcticDB\bin\Release\System.Data.SQLite.EF6.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "ArcticDB\bin\Release\System.Data.SQLite.Linq.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "ArcticDB\bin\Release\System.Data.SQLite.xml"; DestDir: "{app}"; Flags: ignoreversion
+Source: "ArcticDB\extra\warning.txt"; DestDir: "{app}"; Flags: ignoreversion
 ; NOTE: Раскоментировать , если .NET нужн опоставлять с дистрибутивом
 ;Source: "NDP452-KB2901907-x86-x64-AllOS-ENU.exe"; DestDir: {tmp}; Flags: deleteafterinstall; Check: not IsRequiredDotNetDetected
+Source: "ArcticDB\bin\Release\NLog.config"; DestDir: "{app}"; Flags: ignoreversion
+Source: "ArcticDB\bin\Release\NLog.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "ArcticDB\bin\Release\NLog.xml"; DestDir: "{app}"; Flags: ignoreversion
 
 [Icons]
 Name: "{group}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"
@@ -155,7 +158,7 @@ function InitializeSetup(): boolean;
   // Если нет тербуемой версии .NET выводим сообщение о том, что инсталлятор
   // попытается установить её на данный компьютер
 begin
-  if IsDotNetDetected('v4.5', 0) then
+  if not IsDotNetDetected('v4.5', 0) then
      begin
         MsgBox(ExpandConstant('{cm:myCustomMessage}'), mbInformation, MB_OK);
       end; 
