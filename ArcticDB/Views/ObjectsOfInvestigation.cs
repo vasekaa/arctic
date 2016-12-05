@@ -1,5 +1,6 @@
 ﻿using ArcticDB.Model;
 using ArcticDB.Servicies;
+using NLog;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +15,7 @@ namespace ArcticDB.Views
 {
     public partial class ObjectsOfInvestigation : Form
     {
+        private static Logger logger = LogManager.GetCurrentClassLogger();
         IObjectsOfInvestService objectsOfInvestService = new ObjectsOfInvestServiceImpl();
 
         public ObjectsOfInvestigation()

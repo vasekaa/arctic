@@ -103,6 +103,8 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.password);
             this.Controls.Add(this.loginPicker);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "Login";
             this.Text = "Login";
             this.ResumeLayout(false);

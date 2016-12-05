@@ -4,6 +4,7 @@ using ArcticDB.Model;
 using System.Data.SQLite;
 using System.Windows.Forms;
 using System.Text;
+using NLog;
 
 /*
  CREATE TABLE "Sample" ( `id` integer PRIMARY KEY AUTOINCREMENT, `Name` text, `Date` text )
@@ -15,6 +16,7 @@ namespace ArcticDB.Servicies
 {
     internal class SamplesServiceImpl : ISamplesService
     {
+        private static Logger logger = LogManager.GetCurrentClassLogger();
         private const string SELECT_ALL = "SELECT id,Name,Date FROM Sample";
         private const string SELECT_OBJECTTYPE_CHARACTS_BY_ID = "SELECT id,Type,value,SampeId FROM SampeMeta WHERE SampeId = @id";
         private const string SELECT_SAMPLE_BY_ID = "SELECT SampeMeta.id as id,SampeMeta.Type as Type,SampeMeta.value as value,Sample.id as SampeId,Sample.Date as Date,Sample.Name as Name FROM Sample LEFT JOIN SampeMeta ON SampeMeta.SampeId = Sample.id WHERE Sample.id=@SampleId";

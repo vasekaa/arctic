@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NLog;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +14,7 @@ namespace ArcticDB.Views
 {
     public partial class WarningMessageForm : Form
     {
+        private static Logger logger = LogManager.GetCurrentClassLogger();
         public WarningMessageForm()
         {
             InitializeComponent();

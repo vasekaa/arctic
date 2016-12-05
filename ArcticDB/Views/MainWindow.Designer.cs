@@ -168,7 +168,9 @@
             this.ClientSize = new System.Drawing.Size(558, 320);
             this.Controls.Add(this.ProbeView);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MainMenuStrip = this.menuStrip1;
+            this.MinimizeBox = false;
             this.Name = "MainWindow";
             this.Text = "Арктика";
             this.Load += new System.EventHandler(this.Form1_Load);

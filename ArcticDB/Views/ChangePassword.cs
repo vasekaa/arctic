@@ -1,5 +1,6 @@
 ﻿using ArcticDB.Servicies;
 using ArcticDB.Servicies.Impl;
+using NLog;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +15,7 @@ namespace ArcticDB.Views
 {
     public partial class ChangePassword : Form
     {
+        private static Logger logger = LogManager.GetCurrentClassLogger();
         IUserService userService = new UserServiceImpl();
         ILoginService loginService = new LoginServiceImpl();
         public ChangePassword()

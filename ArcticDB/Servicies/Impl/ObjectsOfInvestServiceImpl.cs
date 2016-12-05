@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using ArcticDB.Model;
 using System.Data.SQLite;
 using System.Windows.Forms;
+using NLog;
 /*
 CREATE TABLE SampeTypeParameters ( SampeTypeId integer, InputParameterId integer )
 CREATE TABLE SampleType ( id integer PRIMARY KEY AUTOINCREMENT, name text )
@@ -12,6 +13,7 @@ namespace ArcticDB.Servicies
 {
     internal class ObjectsOfInvestServiceImpl : IObjectsOfInvestService
     {
+        private static Logger logger = LogManager.GetCurrentClassLogger();
         private const string SELECT_ALL = "SELECT id,name FROM SampleType";
         private const string INSERT = "INSERT INTO SampleType (id, name) VALUES (@id,@name)";
         private const string INSERT_CHARACTS = "INSERT INTO SampeTypeParameters (InputParameterId, SampeTypeId) VALUES (@InputParameterId,@SampeTypeId)";

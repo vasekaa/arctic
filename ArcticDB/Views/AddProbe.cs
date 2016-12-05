@@ -1,6 +1,7 @@
 ﻿using ArcticDB.Model;
 using ArcticDB.Servicies;
 using ArcticDB.Servicies.Impl;
+using NLog;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -17,6 +18,7 @@ namespace ArcticDB.Views
 {
     public partial class AddProbe : Form
     {
+        private static Logger logger = LogManager.GetCurrentClassLogger();
         ISamplesService sampleService = new SamplesServiceImpl();
         IUserService permissionChecker = new UserServiceImpl();
         string tempPath;

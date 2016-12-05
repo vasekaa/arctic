@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NLog;
+using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
 
@@ -6,6 +7,7 @@ namespace ArcticDB.Servicies
 {
     internal class LoginServiceImpl : ILoginService
     {
+        private static Logger logger = LogManager.GetCurrentClassLogger();
         public bool checkPassword(string login, string password)
         {
             string passwordHash = "";
@@ -14,6 +16,8 @@ namespace ArcticDB.Servicies
             try
             {
                 passwordHash = (string)cmd.ExecuteScalar();
+                if (passwordHash == null)
+                    return false;
                 
             }
             catch (SQLiteException ex)

@@ -210,6 +210,8 @@
             this.Controls.Add(this.SaveSampleButton);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "AddProbe";
             this.Text = "Новое исследование";
             this.Load += new System.EventHandler(this.AddProbe_Load);

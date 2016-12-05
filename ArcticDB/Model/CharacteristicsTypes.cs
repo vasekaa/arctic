@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NLog;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,7 @@ namespace ArcticDB.Model
 {
     public sealed class CharacteristicsTypes
     {
-
+        private static Logger logger = LogManager.GetCurrentClassLogger();
         private readonly String name;
         private readonly int value;
 

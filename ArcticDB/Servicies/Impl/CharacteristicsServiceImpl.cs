@@ -1,6 +1,7 @@
 ﻿using ArcticDB;
 using ArcticDB.Model;
 using ArcticDB.Servicies;
+using NLog;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -14,6 +15,7 @@ namespace ArcticDB.Servicies
 {
     internal class CharacteristicsServiceImpl : ICharacteristicsService
     {
+        private static Logger logger = LogManager.GetCurrentClassLogger();
         private const string SELECT_ALL = "SELECT id,name,type FROM InputParamaters";
         private const string INSERT = "INSERT INTO InputParamaters (id, name, type) VALUES (@id,@name,@type)";
         private const string DELETE_ONE = "DELETE FROM InputParamaters WHERE id = @id";

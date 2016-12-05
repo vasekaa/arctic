@@ -1,5 +1,6 @@
 ﻿using ArcticDB.Servicies;
 using ArcticDB.Servicies.Impl;
+using NLog;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +15,7 @@ namespace ArcticDB
 {
     public partial class Login : Form
     {
+        private static Logger logger = LogManager.GetCurrentClassLogger();
         ILoginService loginService = new LoginServiceImpl();
         IUserService userService = new UserServiceImpl();
 

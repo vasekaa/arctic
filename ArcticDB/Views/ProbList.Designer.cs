@@ -108,7 +108,6 @@
             this.nameSearchTextBox.Name = "nameSearchTextBox";
             this.nameSearchTextBox.Size = new System.Drawing.Size(487, 20);
             this.nameSearchTextBox.TabIndex = 3;
-            this.nameSearchTextBox.Click += new System.EventHandler(this.fileNameTextBoxOnClick);
             // 
             // keysSearchTextBox1
             // 
@@ -199,6 +198,8 @@
             this.Controls.Add(this.RemoveProbButton);
             this.Controls.Add(this.AddProbButton);
             this.Controls.Add(this.listView1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "ProbList";
             this.Text = "Пробы";
             this.Load += new System.EventHandler(this.ProbList_Load);

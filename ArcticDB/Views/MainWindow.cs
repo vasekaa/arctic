@@ -13,11 +13,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ArcticDB.Servicies.Impl;
 using System.Diagnostics;
+using NLog;
 
 namespace ArcticDB
 {
     public partial class MainWindow : Form
     {
+        private static Logger logger = LogManager.GetCurrentClassLogger();
         IUserService permissionChecker = new UserServiceImpl();
         public MainWindow()
         {
@@ -126,7 +128,14 @@ namespace ArcticDB
             {
                 Process ArchiveProcess = Process.Start("7za.exe", "a -tzip " + Program.dbExportFileName + " @DBExportList.txt");
                 ArchiveProcess.WaitForExit();
-                File.Copy(Program.dbExportFileName, Path.Combine(folderBrowserDialog1.SelectedPath, Program.dbExportFileName), true);
+                try
+                {
+                    File.Copy(Program.dbExportFileName, Path.Combine(folderBrowserDialog1.SelectedPath, Program.dbExportFileName), true);
+                }
+                catch (FileNotFoundException exep)
+                {
+
+                }
             }  
         }
 

@@ -1,4 +1,5 @@
 ﻿using ArcticDB.Model;
+using NLog;
 using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
@@ -8,11 +9,26 @@ using System.Threading.Tasks;
 /*
  CREATE TABLE Users ( id integer PRIMARY KEY AUTOINCREMENT, name text, permissions integer, passwordHash text )
  CREATE TABLE Permissions ( id integer, name text )
-     */
+ Данные
+ ------------------------------------------
+ "1"	"1"	"Администратор"	"255"	"test"
+ "2"	"2"	"Пользователь"	"16"	"test3"
+ ------------------------------------------
+"1"	"1"	    "ADD_FILE"
+"2"	"2"	    "REMOVE_FILE"
+"3"	"4"	    "ADD_KEYWORDS"
+"4"	"8"	    "REMOVE_KEYWORDS"
+"5"	"16"	"EXPORT_FILES"
+"6"	"32"	"ADMINISTRATION_MENU_ACCESS"
+"7"	"64"	"DELETE_SAMPLES"
+"8"	"128"	"ADD_SAMPLES"
+-------------------------------------------
+*/
 namespace ArcticDB.Servicies.Impl
 {
     class UserServiceImpl : IUserService
     {
+        private static Logger logger = LogManager.GetCurrentClassLogger();
         private const string SELECT_USER_PASSWORD_BY_NAME = "SELECT passwordHash FROM Users WHERE name = @name";
         private const string INSERT_USER_PASSWORD_BY_NAME = "UPDATE Users SET passwordHash=@passwordHash WHERE name = @name";
         private const string GET_USER_PERMISSIONS = "SELECT Permissions.name AS Name FROM Users LEFT JOIN Permissions ON Users.permissions & Permissions.id WHERE Users.name = @name";

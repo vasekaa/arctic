@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NLog;
+using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
 using System.Linq;
@@ -9,6 +10,7 @@ namespace ArcticDB
 {
     static class Program
     {
+        private static Logger logger = LogManager.GetCurrentClassLogger();
         public static SQLiteConnection conn = null;
         public static string applicationReportsPath = ".\\ReportsArctic\\";
         public static string ActiveDBName = "arctic.db";

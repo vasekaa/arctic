@@ -1,6 +1,7 @@
 ﻿using ArcticDB.Model;
 using ArcticDB.Servicies;
 using ArcticDB.Servicies.Impl;
+using NLog;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,6 +17,7 @@ namespace ArcticDB.Views
 {
     public partial class ProbList : Form
     {
+        private static Logger logger = LogManager.GetCurrentClassLogger();
         ISamplesService sampleService = new SamplesServiceImpl();
         IUserService permissionChecker = new UserServiceImpl();
         public ProbList()
@@ -91,12 +93,6 @@ namespace ArcticDB.Views
                     fillSampleList();
                 }
             }
-        }
-
-        private void fileNameTextBoxOnClick(object sender, EventArgs e)
-        {
-            this.nameSearchTextBox.Text = "";
-            this.keysSearchTextBox1.Text = "";
         }
 
         private void searchButton_Click(object sender, EventArgs e)

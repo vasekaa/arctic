@@ -1,4 +1,5 @@
 ﻿using ArcticDB.Model;
+using NLog;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -10,6 +11,7 @@ namespace ArcticDB.Servicies
 {
     class FilesUtil
     {
+        private static Logger logger = LogManager.GetCurrentClassLogger();
         public static string[] GetFileNames(string path, string filter)
         {
             string[] files = Directory.GetFiles(path, filter);

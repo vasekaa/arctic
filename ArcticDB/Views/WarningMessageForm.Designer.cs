@@ -58,6 +58,8 @@
             this.ClientSize = new System.Drawing.Size(335, 262);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "WarningMessageForm";
             this.Text = "Информационное сообщение";
             this.ResumeLayout(false);
