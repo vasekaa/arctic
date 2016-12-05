@@ -32,6 +32,7 @@ namespace ArcticDB.Servicies
             }
             catch (Exception ex)
             {
+                logger.Error(ex);
                 throw new Exception(ex.Message);
             }
             characteristic.id = SQLLiteUtil.getLastRowId();
@@ -51,13 +52,13 @@ namespace ArcticDB.Servicies
                 {
                     characteristic = new Characteristic(CharacteristicsTypes.getCharacteristicsTypesByType(Int32.Parse(r["type"].ToString())), r["name"].ToString(), Int32.Parse(r["id"].ToString()));
                     characteristics.Add(characteristic);
-                    Console.WriteLine(characteristic);
+                    logger.Debug("r.Read(): " + characteristic);
                 }
                 r.Close();
             }
             catch (SQLiteException ex)
             {
-                Console.WriteLine(ex.Message);
+                logger.Error(ex);
             }
             return characteristics;
         }
@@ -72,6 +73,7 @@ namespace ArcticDB.Servicies
             }
             catch (Exception ex)
             {
+                logger.Error(ex);
                 if (ex.Message.Contains("FOREIGN"))
                 {
                     MessageBox.Show("Данную запись нельзя удалить.\nОна используется в связанных таблицах.",
@@ -96,6 +98,7 @@ namespace ArcticDB.Servicies
             }
             catch (Exception ex)
             {
+                logger.Error(ex);
                 throw new Exception(ex.Message);
             }
         }

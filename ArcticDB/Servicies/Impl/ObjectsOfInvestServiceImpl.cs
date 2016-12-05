@@ -37,6 +37,7 @@ namespace ArcticDB.Servicies
             }
             catch (Exception ex)
             {
+                logger.Error(ex);
                 transact.Rollback();
                 if (ex.Message.Contains("FOREIGN"))
                 {
@@ -59,6 +60,7 @@ namespace ArcticDB.Servicies
                 }
                 catch (Exception ex)
                 {
+                    logger.Error(ex);
                     transact.Rollback();
                     if (ex.Message.Contains("FOREIGN"))
                     {
@@ -89,13 +91,13 @@ namespace ArcticDB.Servicies
                 {
                     objectOfInvestigation = new ObjectOfInvestigationPojo(Int32.Parse(r["id"].ToString()), r["name"].ToString());
                     objectOfInvestigations.Add(objectOfInvestigation);
-                    Console.WriteLine(objectOfInvestigation);
+                    logger.Debug("r.Read(): " + objectOfInvestigation);
                 }
                 r.Close();
             }
             catch (SQLiteException ex)
             {
-                Console.WriteLine(ex.Message);
+                logger.Error(ex);
             }
             return objectOfInvestigations;
         }
@@ -114,6 +116,7 @@ namespace ArcticDB.Servicies
             }
             catch (Exception ex)
             {
+                logger.Error(ex);
                 transact.Rollback();
                 if (ex.Message.Contains("FOREIGN"))
                 {
@@ -145,13 +148,13 @@ namespace ArcticDB.Servicies
                 {
                     characteristic = new Characteristic(Int32.Parse(r["id"].ToString()), r["name"].ToString());
                     characteristics.Add(characteristic);
-                    Console.WriteLine(characteristic);
+                    logger.Debug("r.Read(): " + characteristic);
                 }
                 r.Close();
             }
             catch (SQLiteException ex)
             {
-                Console.WriteLine(ex.Message);
+                logger.Error(ex);
             }
             return characteristics;
         }

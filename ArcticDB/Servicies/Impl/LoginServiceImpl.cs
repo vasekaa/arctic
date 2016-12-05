@@ -22,7 +22,7 @@ namespace ArcticDB.Servicies
             }
             catch (SQLiteException ex)
             {
-                Console.WriteLine(ex.Message);
+                logger.Error(ex);
             }
             return passwordHash.Equals(password);
         }
@@ -40,13 +40,13 @@ namespace ArcticDB.Servicies
                 {
                     line = r["name"].ToString();
                     userNames.Add(line);
-                    Console.WriteLine(line);
+                    logger.Debug("r.Read(): " + line);
                 }
                 r.Close();
             }
             catch (SQLiteException ex)
             {
-                Console.WriteLine(ex.Message);
+                logger.Error(ex);
             }
             return userNames;
         }

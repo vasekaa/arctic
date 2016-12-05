@@ -72,7 +72,16 @@ namespace ArcticDB.Views
                 this.listView1.Items.Remove(item);
                 foreach (String fileName in fileList)
                 {
-                    File.Delete(Path.Combine(Program.applicationReportsPath, fileName));
+                    try
+                    {
+                        File.Delete(Path.Combine(Program.applicationReportsPath, fileName));
+                    }
+                    catch (Exception ex)
+                    {
+                        logger.Error(ex);
+                        throw ex;
+                    }
+                    
                 }
                 
             }

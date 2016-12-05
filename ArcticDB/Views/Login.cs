@@ -35,7 +35,7 @@ namespace ArcticDB
             {
                loginAccount = this.loginPicker.SelectedItem.ToString();
             }
-            
+            logger.Debug("Loging user: "+ loginAccount);
             if (loginService.checkPassword(loginAccount, accountPassword))
             {
                 this.loginErrorText.Visible = false;
@@ -47,6 +47,7 @@ namespace ArcticDB
             }
             else
             {
+                logger.Debug("Loging user failed: " + loginAccount);
                 this.loginErrorText.Visible = true;
             }
         }

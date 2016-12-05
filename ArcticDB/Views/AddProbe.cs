@@ -98,7 +98,15 @@ namespace ArcticDB.Views
 
         private void copyFilesFromApplicationToTmpDir(string visibleFileName, string storageFileName)
         {
-            File.Copy(Path.Combine(Program.applicationReportsPath, storageFileName), Path.Combine(UserTmpPathString, storageFileName), true);
+            try
+            {
+                File.Copy(Path.Combine(Program.applicationReportsPath, storageFileName), Path.Combine(UserTmpPathString, storageFileName), true);
+            }
+            catch(Exception e)
+            {
+                logger.Error(e);
+                throw e;
+            }
         }
 
         private void AddProbe_Load(object sender, EventArgs e)
@@ -116,7 +124,16 @@ namespace ArcticDB.Views
                 String filename = Path.GetFileName(openFileDialog.FileName);
                 if (this.listView2.FindItemWithText(filename) == null)
                 {
-                    File.Copy(openFileDialog.FileName, Path.Combine(UserTmpPathString, randomFileName), true);
+                    try
+                    {
+                        File.Copy(openFileDialog.FileName, Path.Combine(UserTmpPathString, randomFileName), true);
+                    }
+                    catch (Exception ex)
+                    {
+                        logger.Error(ex);
+                        throw ex;
+                    }
+                    
                     string[] row = { filename, randomFileName };
                     ListViewItem item = new ListViewItem(row);
                     this.listView2.Items.Add(item);
@@ -142,7 +159,16 @@ namespace ArcticDB.Views
             foreach (ListViewItem eachItem in listView2.SelectedItems)
             {
                 listView2.Items.Remove(eachItem);
-                File.Delete(Path.Combine(UserTmpPathString, eachItem.SubItems[1].Text));
+                try
+                {
+                    File.Delete(Path.Combine(UserTmpPathString, eachItem.SubItems[1].Text));
+                }
+                catch (Exception ex)
+                {
+                    logger.Error(ex);
+                    throw ex;
+                }
+                
             }
         }
 
@@ -204,7 +230,15 @@ namespace ArcticDB.Views
         {
             foreach (String fileName in filesList)
             {
-                File.Copy(Path.Combine(UserTmpPathString, fileName), Path.Combine(Program.applicationReportsPath, fileName), true);
+                try
+                {
+                    File.Copy(Path.Combine(UserTmpPathString, fileName), Path.Combine(Program.applicationReportsPath, fileName), true);
+                }
+                catch (Exception ex)
+                {
+                    logger.Error(ex);
+                    throw ex;
+                }
             }
         }
 
@@ -223,8 +257,18 @@ namespace ArcticDB.Views
                 ListView.SelectedListViewItemCollection items = listView2.SelectedItems;
                 String storageFileName = items[0].SubItems[1].Text.ToString();
                 String fileToOpen = items[0].SubItems[0].Text.ToString();
-                File.Copy(Path.Combine(UserTmpPathString, storageFileName), Path.Combine(UserTmpPathString, fileToOpen), true);
-                System.Diagnostics.Process.Start(Path.Combine(UserTmpPathString, fileToOpen));
+                try
+                {
+                    File.Copy(Path.Combine(UserTmpPathString, storageFileName), Path.Combine(UserTmpPathString, fileToOpen), true);
+                    System.Diagnostics.Process.Start(Path.Combine(UserTmpPathString, fileToOpen));
+                }
+                catch (Exception ex)
+                {
+                    logger.Error(ex);
+                    throw ex;
+                }
+                
+                
             }
         }
 
@@ -235,7 +279,16 @@ namespace ArcticDB.Views
             {
                 foreach (ListViewItem eachItem in listView2.SelectedItems)
                 {
-                    File.Copy(Path.Combine(UserTmpPathString, eachItem.SubItems[1].Text), Path.Combine(folderBrowserDialog1.SelectedPath, eachItem.SubItems[0].Text), true);
+                    try
+                    {
+                        File.Copy(Path.Combine(UserTmpPathString, eachItem.SubItems[1].Text), Path.Combine(folderBrowserDialog1.SelectedPath, eachItem.SubItems[0].Text), true);
+                    }
+                    catch (Exception ex)
+                    {
+                        logger.Error(ex);
+                        throw ex;
+                    }
+                    
                 }
             }
             

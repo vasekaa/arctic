@@ -34,8 +34,7 @@ namespace ArcticDB.Views
             }
             catch (Exception e)
             {
-                Console.WriteLine("The file could not be read:");
-                Console.WriteLine(e.Message);
+                logger.Error(e);
             }
             
         }
@@ -44,9 +43,17 @@ namespace ArcticDB.Views
         {
             string lines = this.textBox1.Text.ToString();
             // Write the string to a file.
-            StreamWriter file = new StreamWriter("warning.txt");
-            file.WriteLine(lines);
-            file.Close();
+            try
+            {
+                StreamWriter file = new StreamWriter("warning.txt");
+                file.WriteLine(lines);
+                file.Close();
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex);
+            }
+            
         }
     }
 }

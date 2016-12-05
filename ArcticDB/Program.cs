@@ -29,11 +29,12 @@ namespace ArcticDB
         }
         static void OnProcessExit(object sender, EventArgs e)
         {
-            Console.WriteLine("I'm out of here");
+            logger.Debug("Exiting program");
             conn.Dispose();
         }
         public static void StartDBConnection()
         {
+            logger.Debug("StartDBConnection");
             conn = new SQLiteConnection("Data Source=arctic.db; Version=3;foreign keys=true;");
             try
             {
@@ -41,15 +42,17 @@ namespace ArcticDB
             }
             catch (SQLiteException ex)
             {
-                Console.WriteLine(ex.Message);
+                logger.Error("Starting DB connection error", ex);
             }
         }
         public static void CloseDbConnection()
         {
+            logger.Debug("CloseDbConnection");
             conn.Dispose();
         }
         public static void backUpDb()
         {
+            logger.Debug("backUpDb");
             using (var destination = new SQLiteConnection("Data Source=BackupDb.db; Version=3;foreign keys=true;"))
             {
                 destination.Open();

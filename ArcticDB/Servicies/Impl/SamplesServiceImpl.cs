@@ -43,13 +43,13 @@ namespace ArcticDB.Servicies
                 {
                     samplePojo = new SamplePojo(Int32.Parse(r["id"].ToString()), r["Name"].ToString(), r["Date"].ToString());
                     samplePojoList.Add(samplePojo);
-                    Console.WriteLine(samplePojo);
+                    logger.Debug("r.Read(): " + samplePojo);
                 }
                 r.Close();
             }
             catch (SQLiteException ex)
             {
-                Console.WriteLine(ex.Message);
+                logger.Error(ex);
             }
 
             foreach(SamplePojo sample in samplePojoList)
@@ -76,6 +76,7 @@ namespace ArcticDB.Servicies
             }
             catch (Exception ex)
             {
+                logger.Error(ex);
                 transact.Rollback();
                 if (ex.Message.Contains("FOREIGN"))
                 {
@@ -101,6 +102,7 @@ namespace ArcticDB.Servicies
                 }
                 catch (Exception ex)
                 {
+                    logger.Error(ex);
                     transact.Rollback();
                     if (ex.Message.Contains("FOREIGN"))
                     {
@@ -133,6 +135,7 @@ namespace ArcticDB.Servicies
             }
             catch (Exception ex)
             {
+                logger.Error(ex);
                 transact.Rollback();
                 if (ex.Message.Contains("FOREIGN"))
                 {
@@ -158,6 +161,7 @@ namespace ArcticDB.Servicies
             }
             catch (Exception ex)
             {
+                logger.Error(ex);
                 throw new Exception(ex.Message);
             }
         }
@@ -186,12 +190,13 @@ namespace ArcticDB.Servicies
                 {
                     metaObject = new MetaObject(Int32.Parse(r["id"].ToString()), Int32.Parse(r["Type"].ToString()), r["value"].ToString(), Int32.Parse(r["SampeId"].ToString()));
                     metaObjectList.Add(metaObject);
+                    logger.Debug("r.Read(): " + metaObject);
                 }
                 r.Close();
             }
             catch (SQLiteException ex)
             {
-                Console.WriteLine(ex.Message);
+                logger.Error(ex);
             }
             return metaObjectList;
         }
@@ -219,13 +224,13 @@ namespace ArcticDB.Servicies
                 {
                     samplePojo = new SamplePojo(Int32.Parse(r["id"].ToString()), r["Name"].ToString(), r["Date"].ToString());
                     samplePojoList.Add(samplePojo);
-                    Console.WriteLine(samplePojo);
+                    logger.Debug("r.Read(): " + samplePojo);
                 }
                 r.Close();
             }
             catch (SQLiteException ex)
             {
-                Console.WriteLine(ex.Message);
+                logger.Error(ex);
             }
 
             foreach (SamplePojo sample in samplePojoList)
@@ -261,6 +266,7 @@ namespace ArcticDB.Servicies
                     {
                         samplePojo = new SamplePojo(Int32.Parse(r["SampeId"].ToString()), r["Name"].ToString(), r["Date"].ToString());
                         samplePojo.metaList = metaList;
+                        logger.Debug("r.Read(): " + samplePojo);
                     }
                     //Check if there is MetaData
                     String MetaItemId = r["id"].ToString();
@@ -275,6 +281,7 @@ namespace ArcticDB.Servicies
             }
             catch (SQLiteException ex)
             {
+                logger.Error(ex);
                 MessageBox.Show("Не получилось достать образец из Базы данных - " + ex.Message,
                        "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return null;
@@ -294,6 +301,7 @@ namespace ArcticDB.Servicies
             }
             catch (Exception ex)
             {
+                logger.Error(ex);
                 transact.Rollback();
                 if (ex.Message.Contains("FOREIGN"))
                 {
@@ -321,6 +329,7 @@ namespace ArcticDB.Servicies
                 }
                 catch (Exception ex)
                 {
+                    logger.Error(ex);
                     if (ex.Message.Contains("FOREIGN"))
                     {
                         MessageBox.Show("Данную запись нельзя добавить.",
@@ -346,12 +355,13 @@ namespace ArcticDB.Servicies
                 {
                     metaObject = new MetaObject(Int32.Parse(r["id"].ToString()), Int32.Parse(r["Type"].ToString()), r["value"].ToString(), Int32.Parse(r["SampeId"].ToString()));
                     metaObjectList.Add(metaObject);
+                    logger.Debug("r.Read(): " + metaObject);
                 }
                 r.Close();
             }
             catch (SQLiteException ex)
             {
-                Console.WriteLine(ex.Message);
+                logger.Error(ex);
             }
             return metaObjectList;
         }

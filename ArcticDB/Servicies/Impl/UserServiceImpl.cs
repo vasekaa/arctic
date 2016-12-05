@@ -50,7 +50,7 @@ namespace ArcticDB.Servicies.Impl
             }
             catch (SQLiteException ex)
             {
-                Console.WriteLine(ex.Message);
+                logger.Error(ex);
             }
             return pesmissions;
         }
@@ -72,7 +72,7 @@ namespace ArcticDB.Servicies.Impl
             }
             catch (SQLiteException ex)
             {
-                Console.WriteLine(ex.Message);
+                logger.Error(ex);
             }
             return passwordHash;
         }
@@ -88,6 +88,7 @@ namespace ArcticDB.Servicies.Impl
             }
             catch (Exception ex)
             {
+                logger.Error(ex);
                 throw new Exception(ex.Message);
             }
         }

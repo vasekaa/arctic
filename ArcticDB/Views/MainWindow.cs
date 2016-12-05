@@ -48,16 +48,15 @@ namespace ArcticDB
             }
             catch (Exception ex)
             {
-                Console.WriteLine("The file could not be read:");
-                Console.WriteLine(ex.Message);
+                logger.Error(ex, "The file could not be read:");
             }
-            if (line.Length>5)
+            if (line.Length > 5)
             {
                 MessageBox.Show(line,
                         "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
-            
+
 
         private void AddProbeToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -100,21 +99,33 @@ namespace ArcticDB
         {
             try
             {
+                StringBuilder deletedFileNames = new StringBuilder();
                 ISamplesService sampleService = new SamplesServiceImpl();
                 List<String> filesfromSamples = FilesUtil.getStorageFileNamesByMeta(sampleService.getAllMetaByType(1));
-                String[] reportFolderFiles = FilesUtil.GetFileNames(Program.applicationReportsPath,"*");
+                String[] reportFolderFiles = FilesUtil.GetFileNames(Program.applicationReportsPath, "*");
                 foreach (String fileFromStorage in reportFolderFiles)
                 {
                     if (!filesfromSamples.Contains(fileFromStorage))
                     {
-                        File.Delete(Path.Combine(Program.applicationReportsPath, fileFromStorage));
+                        deletedFileNames.Append(fileFromStorage).AppendLine();
+                        try
+                        {
+                            File.Delete(Path.Combine(Program.applicationReportsPath, fileFromStorage));
+                        }
+                        catch (Exception ex)
+                        {
+                            logger.Error(ex);
+                            throw ex;
+                        }
+
                     }
                 }
-                MessageBox.Show("Место освобождено" ,
+                MessageBox.Show("Место освобождено, удалены:" + deletedFileNames.ToString(),
                         "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             catch (Exception ex)
             {
+                logger.Error(ex);
                 MessageBox.Show(ex.Message,
                         "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
@@ -122,36 +133,44 @@ namespace ArcticDB
 
         private void ExportToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Program.backUpDb();
-            FolderBrowserDialog folderBrowserDialog1 = new FolderBrowserDialog();
-            if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
+            try
             {
-                Process ArchiveProcess = Process.Start("7za.exe", "a -tzip " + Program.dbExportFileName + " @DBExportList.txt");
-                ArchiveProcess.WaitForExit();
-                try
+                Program.backUpDb();
+                FolderBrowserDialog folderBrowserDialog1 = new FolderBrowserDialog();
+                if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
                 {
+                    Process ArchiveProcess = Process.Start("7za.exe", "a -tzip " + Program.dbExportFileName + " @DBExportList.txt");
+                    ArchiveProcess.WaitForExit();
                     File.Copy(Program.dbExportFileName, Path.Combine(folderBrowserDialog1.SelectedPath, Program.dbExportFileName), true);
                 }
-                catch (FileNotFoundException exep)
-                {
-
-                }
-            }  
+            }
+            catch (Exception exep)
+            {
+                logger.Error(exep, "Couldn't export DB. ");
+            }
         }
 
         private void ImportDBToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "Zip Files|*.zip";
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            try
             {
-                File.Copy(openFileDialog.FileName, Path.Combine(".\\", Program.dbExportFileName), true);
-                Process unArchiveProcess = Process.Start("7za.exe", "x DBExported.zip -y");
-                unArchiveProcess.WaitForExit();
-                Program.CloseDbConnection();
-                GC.Collect();
-                File.Copy(Path.Combine(".\\", Program.BackUpDBName), Path.Combine(".\\", Program.ActiveDBName), true);
-                Program.StartDBConnection();
+                OpenFileDialog openFileDialog = new OpenFileDialog();
+                openFileDialog.Filter = "Zip Files|*.zip";
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    File.Copy(openFileDialog.FileName, Path.Combine(".\\", Program.dbExportFileName), true);
+                    Process unArchiveProcess = Process.Start("7za.exe", "x DBExported.zip -y");
+                    unArchiveProcess.WaitForExit();
+                    Program.CloseDbConnection();
+                    GC.Collect();
+                    File.Copy(Path.Combine(".\\", Program.BackUpDBName), Path.Combine(".\\", Program.ActiveDBName), true);
+                    Program.StartDBConnection();
+                }
+            }
+            catch(Exception ex)
+            {
+                logger.Error(ex);
+                throw ex;
             }
         }
     }

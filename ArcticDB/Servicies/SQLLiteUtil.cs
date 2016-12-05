@@ -21,6 +21,7 @@ namespace ArcticDB.Servicies
             }
             catch (Exception ex)
             {
+                logger.Error(ex);
                 throw new Exception(ex.Message);
             }
 
