@@ -15,6 +15,7 @@ namespace ArcticDB
         public static SQLiteConnection conn = null;
         public static string applicationReportsPath = Path.Combine(Application.StartupPath, "ReportsArctic\\");
         public static string ActiveDBName = "arctic.db";
+        public static string DissallowedExtensions = ".exe .bat";
         public static string BackUpDBName = "BackupDb.db";
         public static string dbExportFileName = "DBExported.zip";
         /// <summary>

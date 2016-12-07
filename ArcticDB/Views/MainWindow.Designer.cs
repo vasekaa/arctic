@@ -174,7 +174,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.MinimizeBox = false;
             this.Name = "MainWindow";
-            this.Text = "Арктика";
+            this.Text = "ЯМАЛ-АРКТИКА";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

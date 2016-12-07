@@ -257,18 +257,31 @@ namespace ArcticDB.Views
                 ListView.SelectedListViewItemCollection items = listView2.SelectedItems;
                 String storageFileName = items[0].SubItems[1].Text.ToString();
                 String fileToOpen = items[0].SubItems[0].Text.ToString();
+                if (Program.DissallowedExtensions.Contains(Path.GetExtension(fileToOpen)))
+                {
+                    MessageBox.Show("Вы пытаетесь открыть файл запрещенного формата: "+ Program.DissallowedExtensions,
+                       "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+                 }
                 try
                 {
                     File.Copy(Path.Combine(UserTmpPathString, storageFileName), Path.Combine(UserTmpPathString, fileToOpen), true);
-                    System.Diagnostics.Process.Start(Path.Combine(UserTmpPathString, fileToOpen));
                 }
                 catch (Exception ex)
                 {
                     logger.Error(ex);
                     throw ex;
                 }
-                
-                
+                try
+                {
+                    System.Diagnostics.Process.Start(Path.Combine(UserTmpPathString, fileToOpen));
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("На вашем компьютере не установлено приложение для просмотра данного типа файлов\n Пожалуйста выгрузите файл на сменный носитель и откройте на другом компьютере",
+                        "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+                }
             }
         }
 
