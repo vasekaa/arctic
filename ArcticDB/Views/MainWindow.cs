@@ -40,7 +40,7 @@ namespace ArcticDB
             String line = "";
             try
             {   // Open the text file using a stream reader.
-                using (StreamReader sr = new StreamReader("warning.txt"))
+                using (StreamReader sr = new StreamReader(Path.Combine(Application.StartupPath, "warning.txt")))
                 {
                     // Read the stream to a string, and write the string to the console.
                     line = sr.ReadToEnd();
@@ -139,9 +139,13 @@ namespace ArcticDB
                 FolderBrowserDialog folderBrowserDialog1 = new FolderBrowserDialog();
                 if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
                 {
-                    Process ArchiveProcess = Process.Start("7za.exe", "a -tzip " + Program.dbExportFileName + " @DBExportList.txt");
+                    ProcessStartInfo info = new ProcessStartInfo();
+                    info.Arguments = "a -tzip " + Program.dbExportFileName + " @DBExportList.txt";
+                    info.WorkingDirectory = Application.StartupPath;
+                    info.FileName = @"7za.exe";
+                    Process ArchiveProcess = Process.Start(info);
                     ArchiveProcess.WaitForExit();
-                    File.Copy(Program.dbExportFileName, Path.Combine(folderBrowserDialog1.SelectedPath, Program.dbExportFileName), true);
+                    File.Copy(Path.Combine(Application.StartupPath, Program.dbExportFileName), Path.Combine(folderBrowserDialog1.SelectedPath, Program.dbExportFileName), true);
                 }
             }
             catch (Exception exep)
@@ -158,12 +162,22 @@ namespace ArcticDB
                 openFileDialog.Filter = "Zip Files|*.zip";
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    File.Copy(openFileDialog.FileName, Path.Combine(".\\", Program.dbExportFileName), true);
-                    Process unArchiveProcess = Process.Start("7za.exe", "x DBExported.zip -y");
+                    File.Copy(openFileDialog.FileName, Path.Combine(Application.StartupPath, Program.dbExportFileName), true);
+                    logger.Error("111 Application.StartupPath - "+ Application.StartupPath);
+                    ProcessStartInfo info = new ProcessStartInfo();
+                    info.Arguments = "x DBExported.zip -y";
+                    info.WorkingDirectory = Application.StartupPath;
+                    info.FileName = @"7za.exe";
+                    Process unArchiveProcess = Process.Start(info);
+                    logger.Error("2222222222222");
                     unArchiveProcess.WaitForExit();
+                    logger.Error("3333333333333");
                     Program.CloseDbConnection();
+                    logger.Error("44444444444444");
                     GC.Collect();
-                    File.Copy(Path.Combine(".\\", Program.BackUpDBName), Path.Combine(".\\", Program.ActiveDBName), true);
+                    logger.Error("55555555555555");
+                    File.Copy(Path.Combine(Application.StartupPath, Program.BackUpDBName), Path.Combine(Application.StartupPath, Program.ActiveDBName), true);
+                    logger.Error("6666666666666");
                     Program.StartDBConnection();
                 }
             }

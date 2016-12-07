@@ -148,7 +148,7 @@ end;
 //-----------------------------------------------------------------------------
 function IsRequiredDotNetDetected(): boolean;
 begin
-    result := IsDotNetDetected('v4.5', 0);
+    result := IsDotNetDetected('v4.0 Full Profile', 0);
 end;
 
 //-----------------------------------------------------------------------------
@@ -158,7 +158,7 @@ function InitializeSetup(): boolean;
   // Если нет тербуемой версии .NET выводим сообщение о том, что инсталлятор
   // попытается установить её на данный компьютер
 begin
-  if not IsDotNetDetected('v4.5', 0) then
+  if not IsDotNetDetected('v4.0 Full Profile', 0) then
      begin
         MsgBox(ExpandConstant('{cm:myCustomMessage}'), mbInformation, MB_OK);
       end; 

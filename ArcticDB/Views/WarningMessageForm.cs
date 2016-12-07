@@ -25,7 +25,7 @@ namespace ArcticDB.Views
         {
             try
             {   // Open the text file using a stream reader.
-                using (StreamReader sr = new StreamReader("warning.txt"))
+                using (StreamReader sr = new StreamReader(Path.Combine(Application.StartupPath, "warning.txt")))
                 {
                     // Read the stream to a string, and write the string to the console.
                     String line = sr.ReadToEnd();
@@ -45,7 +45,7 @@ namespace ArcticDB.Views
             // Write the string to a file.
             try
             {
-                StreamWriter file = new StreamWriter("warning.txt");
+                StreamWriter file = new StreamWriter(Path.Combine(Application.StartupPath, "warning.txt"));
                 file.WriteLine(lines);
                 file.Close();
             }
