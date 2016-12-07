@@ -19,7 +19,7 @@ AppPublisher={#MyAppPublisher}
 AppPublisherURL={#MyAppURL}
 AppSupportURL={#MyAppURL}
 AppUpdatesURL={#MyAppURL}
-DefaultDirName={pf}\ArcticDB
+DefaultDirName={sd}\ArcticDB
 DefaultGroupName={#MyAppName}
 LicenseFile=lisc.txt
 OutputDir=output
@@ -48,9 +48,9 @@ Source: "ArcticDB\extra\arctic.db"; DestDir: "{app}"; Flags: ignoreversion
 Source: "ArcticDB\bin\Release\ArcticDB.exe"; DestDir: "{app}"; Flags: ignoreversion
 Source: "ArcticDB\bin\Release\ArcticDB.exe.config"; DestDir: "{app}"; Flags: ignoreversion
 Source: "ArcticDB\bin\Release\ArcticDB.pdb"; DestDir: "{app}"; Flags: ignoreversion
-Source: "ArcticDB\bin\Release\ArcticDB.vshost.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "ArcticDB\bin\Release\ArcticDB.vshost.exe.config"; DestDir: "{app}"; Flags: ignoreversion
-Source: "ArcticDB\bin\Release\ArcticDB.vshost.exe.manifest"; DestDir: "{app}"; Flags: ignoreversion
+;Source: "ArcticDB\bin\Release\ArcticDB.vshost.exe"; DestDir: "{app}"; Flags: ignoreversion
+;Source: "ArcticDB\bin\Release\ArcticDB.vshost.exe.config"; DestDir: "{app}"; Flags: ignoreversion
+;Source: "ArcticDB\bin\Release\ArcticDB.vshost.exe.manifest"; DestDir: "{app}"; Flags: ignoreversion
 Source: "ArcticDB\extra\DBExportList.txt"; DestDir: "{app}"; Flags: ignoreversion
 Source: "ArcticDB\bin\Release\EntityFramework.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "ArcticDB\bin\Release\EntityFramework.SqlServer.dll"; DestDir: "{app}"; Flags: ignoreversion

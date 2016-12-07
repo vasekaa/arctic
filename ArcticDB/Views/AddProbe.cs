@@ -193,7 +193,22 @@ namespace ArcticDB.Views
         {
             SamplePojo sample = new SamplePojo();
             sample.name = NameTextBox.Text;
+            DateTime date;
             sample.Date = maskedTextBox1.Text.ToString();
+            if (sample.name == null || sample.name.Equals(""))
+            {
+                MessageBox.Show("Исследование нельзя сохранить без имени",
+                       "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            if (!DateTime.TryParse(sample.Date, out date) || date.CompareTo(new DateTime(1911, 01, 01, 01, 00, 0))<0 || date.CompareTo(new DateTime(2050, 01, 01, 01, 00, 0))>0)
+            {
+                MessageBox.Show("Введите корректную дату",
+                       "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            
             List<MetaObject> metaObjests = new List<MetaObject>();
             ArrayList filesList = new ArrayList();
             foreach (ListViewItem item in this.listView1.Items)

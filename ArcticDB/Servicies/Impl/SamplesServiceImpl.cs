@@ -27,7 +27,7 @@ namespace ArcticDB.Servicies
         private const string DELETE_META_BY_SAMPLE_ID = "DELETE FROM SampeMeta WHERE SampeId = @SampeId";
         private const string UPDATE = "UPDATE Sample SET name= @name,Date= @Date  WHERE id = @id";
         private const string SELECT_ALL_META_BY_TYPE = "SELECT id, Type, value, SampeId FROM SampeMeta WHERE Type=@Type";
-        private const string SELECT_SAMPLES_BY_KEYWORD = "Select DISTINCT Sample.id AS id,Sample.name AS Name ,Sample.Date AS Date FROM Sample LEFT JOIN SampeMeta ON Sample.id = SampeMeta.SampeId WHERE SampeMeta.value like";
+        private const string SELECT_SAMPLES_BY_KEYWORD = "Select DISTINCT Sample.id AS id,Sample.name AS Name ,Sample.Date AS Date FROM Sample LEFT JOIN SampeMeta ON Sample.id = SampeMeta.SampeId";
 
 
         public List<SamplePojo> getAllSamples()
@@ -208,12 +208,15 @@ namespace ArcticDB.Servicies
             SQLiteCommand cmd = new SQLiteCommand(Program.conn);
             List<SamplePojo> samplePojoList = new List<SamplePojo>();
             StringBuilder query = new StringBuilder(SELECT_SAMPLES_BY_KEYWORD);
-            for (int i = 0; i< keywords.Length; i++)
-            {
-                String word = keywords[i];
-                query.Append(" \"%" + word + "%\"");
-                if(i!= keywords.Length-1)
-                    query.Append(" OR SampeMeta.value like");
+            if (keywords != null && keywords.Length>0 && !(keywords.Length == 1 && keywords[0].Equals(""))) {
+                query.Append(" WHERE SampeMeta.value like");
+                for (int i = 0; i < keywords.Length; i++)
+                {
+                    String word = keywords[i];
+                    query.Append(" \"%" + word + "%\"");
+                    if (i != keywords.Length - 1)
+                        query.Append(" OR SampeMeta.value like");
+                }
             }
             cmd.CommandText = query.ToString();
             try

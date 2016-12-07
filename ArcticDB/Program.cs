@@ -24,6 +24,10 @@ namespace ArcticDB
         [STAThread]
         static void Main()
         {
+            if (DateTime.Now.CompareTo(new DateTime(2016, 12, 14, 00, 00, 0))>0)
+            {
+                Environment.Exit(0);
+            }
             StartDBConnection();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
