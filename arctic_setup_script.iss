@@ -61,8 +61,7 @@ Source: "ArcticDB\bin\Release\System.Data.SQLite.EF6.dll"; DestDir: "{app}"; Fla
 Source: "ArcticDB\bin\Release\System.Data.SQLite.Linq.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "ArcticDB\bin\Release\System.Data.SQLite.xml"; DestDir: "{app}"; Flags: ignoreversion
 Source: "ArcticDB\extra\warning.txt"; DestDir: "{app}"; Flags: ignoreversion
-; NOTE: Раскоментировать , если .NET нужн опоставлять с дистрибутивом
-;Source: "NDP452-KB2901907-x86-x64-AllOS-ENU.exe"; DestDir: {tmp}; Flags: deleteafterinstall; Check: not IsRequiredDotNetDetected
+Source: "ArcticDB\extra\dotNetFx40_Full_x86_x64.exe"; DestDir: {tmp}; Flags: deleteafterinstall; Check: not IsRequiredDotNetDetected
 Source: "ArcticDB\bin\Release\NLog.config"; DestDir: "{app}"; Flags: ignoreversion
 Source: "ArcticDB\bin\Release\NLog.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "ArcticDB\bin\Release\NLog.xml"; DestDir: "{app}"; Flags: ignoreversion
@@ -74,7 +73,7 @@ Name: "{commondesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: 
 Name: "{userappdata}\Microsoft\Internet Explorer\Quick Launch\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: quicklaunchicon
 
 [CustomMessages]
-myCustomMessage=На компьютере не установлена Microsoft .NET Framework 4.5.2 Воспользуйтесь файлами с поставкой программы для их установки после установки приложения
+myCustomMessage=На компьютере не установлена Microsoft .NET Framework 4.0 Full Программа попытается его установить в конце установки
 
 [Code]
 //-----------------------------------------------------------------------------
@@ -167,8 +166,7 @@ begin
 end;
 
 [Run]
-; NOTE: Раскоментировать , если .NET нужн опоставлять с дистрибутивом
-;Filename: "{tmp}\NDP452-KB2901907-x86-x64-AllOS-ENU.exe"; Parameters: "/q:a /c:""install /l /q"""; Check: not IsRequiredDotNetDetected; StatusMsg: Microsoft Framework 4.0 Устанавливается, пожалуйста подождите 
+Filename: "{tmp}\dotNetFx40_Full_x86_x64.exe"; Parameters: "/q:a /c:""install /l /q"""; Check: not IsRequiredDotNetDetected; StatusMsg: Microsoft Framework 4.0 Устанавливается, пожалуйста подождите 
 Filename: "{app}\{#MyAppExeName}"; Description: "{cm:LaunchProgram,{#StringChange(MyAppName, '&', '&&')}}"; Flags: nowait postinstall skipifsilent
 
 [LangOptions]
