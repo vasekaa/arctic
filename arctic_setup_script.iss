@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "ЯМАЛ-АРКТИКА"
-#define MyAppVersion "1.0.0.0"
+#define MyAppVersion "1.0.0.1"
 #define MyAppPublisher "Interregional Expedition Center 'Arctic'"
 #define MyAppURL "http://iec-arctic.ru/"
 #define MyAppExeName "ArcticDB.exe"
