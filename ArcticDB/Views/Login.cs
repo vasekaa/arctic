@@ -24,6 +24,10 @@ namespace ArcticDB
             InitializeComponent();
             foreach(string loginAccount in loginService.getUserAccounts()){
                 this.loginPicker.Items.Add(loginAccount);
+                if (loginAccount.Equals("Пользователь"))
+                {
+                    this.loginPicker.SelectedItem = "Пользователь";
+                }
             }    
         }
 

@@ -35,16 +35,16 @@ MinVersion=0,5.01
 Name: "russian"; MessagesFile: "compiler:Languages\Russian.isl"
 
 [Tasks]
-Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
-Name: "quicklaunchicon"; Description: "{cm:CreateQuickLaunchIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked; OnlyBelowVersion: 0,6.1
+Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}";
+Name: "quicklaunchicon"; Description: "{cm:CreateQuickLaunchIcon}"; GroupDescription: "{cm:AdditionalIcons}"; OnlyBelowVersion: 0,6.1
 
 [Files]
 Source: "ArcticDB\bin\Release\ArcticDB.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "ArcticDB\bin\Release\ReportsArctic\*"; DestDir: "{app}\ReportsArctic"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "ArcticDB\bin\Release\ReportsArctic\*"; DestDir: "{app}\ReportsArctic"; Flags: ignoreversion recursesubdirs createallsubdirs onlyifdoesntexist
 Source: "ArcticDB\bin\Release\x64\*"; DestDir: "{app}\x64"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "ArcticDB\bin\Release\x86\*"; DestDir: "{app}\x86"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "ArcticDB\extra\7za.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "ArcticDB\extra\arctic.db"; DestDir: "{app}"; Flags: ignoreversion
+Source: "ArcticDB\extra\arctic.db"; DestDir: "{app}"; Flags: ignoreversion onlyifdoesntexist
 Source: "ArcticDB\bin\Release\ArcticDB.exe"; DestDir: "{app}"; Flags: ignoreversion
 Source: "ArcticDB\bin\Release\ArcticDB.exe.config"; DestDir: "{app}"; Flags: ignoreversion
 Source: "ArcticDB\bin\Release\ArcticDB.pdb"; DestDir: "{app}"; Flags: ignoreversion
@@ -61,7 +61,7 @@ Source: "ArcticDB\bin\Release\System.Data.SQLite.EF6.dll"; DestDir: "{app}"; Fla
 Source: "ArcticDB\bin\Release\System.Data.SQLite.Linq.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "ArcticDB\bin\Release\System.Data.SQLite.xml"; DestDir: "{app}"; Flags: ignoreversion
 Source: "ArcticDB\extra\warning.txt"; DestDir: "{app}"; Flags: ignoreversion
-Source: "ArcticDB\extra\dotNetFx40_Full_x86_x64.exe"; DestDir: {tmp}; Flags: deleteafterinstall; Check: not IsRequiredDotNetDetected
+Source: "ArcticDB\extra\dotNetFx40_Full_x86_x64.exe"; DestDir: "{tmp}"; Flags: deleteafterinstall; Check: not IsRequiredDotNetDetected
 Source: "ArcticDB\bin\Release\NLog.config"; DestDir: "{app}"; Flags: ignoreversion
 Source: "ArcticDB\bin\Release\NLog.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "ArcticDB\bin\Release\NLog.xml"; DestDir: "{app}"; Flags: ignoreversion

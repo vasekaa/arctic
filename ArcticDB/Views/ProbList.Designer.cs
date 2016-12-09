@@ -117,6 +117,7 @@
             this.keysSearchTextBox1.Name = "keysSearchTextBox1";
             this.keysSearchTextBox1.Size = new System.Drawing.Size(487, 66);
             this.keysSearchTextBox1.TabIndex = 5;
+            this.keysSearchTextBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.onKeyWordsCtrlEnterPress);
             // 
             // searchButton
             // 
@@ -205,6 +206,7 @@
             this.Name = "ProbList";
             this.Text = "Пробы";
             this.Load += new System.EventHandler(this.ProbList_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.OnEnterPressForm);
             this.ResumeLayout(false);
             this.PerformLayout();
 

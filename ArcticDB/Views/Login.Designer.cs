@@ -39,6 +39,7 @@
             // 
             // loginPicker
             // 
+            this.loginPicker.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.loginPicker.FormattingEnabled = true;
             this.loginPicker.Location = new System.Drawing.Point(9, 22);
             this.loginPicker.Name = "loginPicker";

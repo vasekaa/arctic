@@ -137,5 +137,23 @@ namespace ArcticDB.Views
         {
 
         }
+
+        private void OnEnterPressForm(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                this.searchButton_Click(sender,e);
+            }
+        }
+
+        private void onKeyWordsCtrlEnterPress(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.KeyCode == Keys.Enter)
+            {
+                this.searchButton_Click(sender, e);
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+            }
+        }
     }
 }

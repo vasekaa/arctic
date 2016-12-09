@@ -92,6 +92,7 @@
             this.AvailableCharacteristicsToolStripMenuItem1.Name = "AvailableCharacteristicsToolStripMenuItem1";
             this.AvailableCharacteristicsToolStripMenuItem1.Size = new System.Drawing.Size(107, 20);
             this.AvailableCharacteristicsToolStripMenuItem1.Text = "Характеристики";
+            this.AvailableCharacteristicsToolStripMenuItem1.Visible = false;
             this.AvailableCharacteristicsToolStripMenuItem1.Click += new System.EventHandler(this.AvailableCharacteristicsToolStripMenuItem1_Click);
             // 
             // ObjectsOfInvestigationToolStripMenuItem
@@ -101,6 +102,7 @@
             this.ObjectsOfInvestigationToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
             this.ObjectsOfInvestigationToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
             this.ObjectsOfInvestigationToolStripMenuItem.Text = "Обьекты";
+            this.ObjectsOfInvestigationToolStripMenuItem.Visible = false;
             this.ObjectsOfInvestigationToolStripMenuItem.Click += new System.EventHandler(this.ObjectsOfInvestigationToolStripMenuItem_Click);
             // 
             // администрированиеToolStripMenuItem
@@ -172,6 +174,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "MainWindow";
             this.Text = "ЯМАЛ-АРКТИКА";
